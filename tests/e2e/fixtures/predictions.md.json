@@ -1,0 +1,76 @@
+{
+  "info": { "format_version": "1.5", "detector": "md_v5a.0.0.pt" },
+  "detection_categories": { "1": "animal", "2": "person", "3": "vehicle" },
+  "classification_categories": {
+    "1": "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+    "2": "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+    "3": "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose",
+    "4": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear"
+  },
+  "images": [
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0001.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "conf": 0.92,
+          "bbox": [0.1, 0.2, 0.3, 0.4],
+          "classifications": [["1", 0.91], ["3", 0.04]]
+        },
+        {
+          "category": "1",
+          "conf": 0.81,
+          "bbox": [0.5, 0.3, 0.2, 0.3],
+          "classifications": [["1", 0.87], ["3", 0.06]]
+        }
+      ]
+    },
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0002.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "conf": 0.88,
+          "bbox": [0.2, 0.2, 0.3, 0.4],
+          "classifications": [["1", 0.9], ["3", 0.05]]
+        }
+      ]
+    },
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0003.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "conf": 0.9,
+          "bbox": [0.4, 0.4, 0.2, 0.3],
+          "classifications": [["1", 0.93], ["3", 0.03]]
+        }
+      ]
+    },
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0004.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "conf": 0.94,
+          "bbox": [0.3, 0.3, 0.4, 0.5],
+          "classifications": [["2", 0.89], ["4", 0.06]]
+        }
+      ]
+    },
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0005.JPG",
+      "detections": []
+    },
+    {
+      "file": "card/DCIM/100MEDIA/IMG_0006.JPG",
+      "detections": [
+        {
+          "category": "2",
+          "conf": 0.97,
+          "bbox": [0.1, 0.1, 0.2, 0.6]
+        }
+      ]
+    }
+  ]
+}

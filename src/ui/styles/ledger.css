@@ -1,0 +1,258 @@
+/* The ledger: one entry per species */
+.ledger {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.species {
+  display: grid;
+  grid-template-columns: var(--frame-w) minmax(0, 1fr) minmax(16rem, 22rem);
+  gap: var(--space-3) var(--space-5);
+  align-items: start;
+  margin: 0;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--rule);
+  overflow-wrap: anywhere;
+}
+
+.species-frame {
+  align-self: start;
+}
+
+.species-side {
+  --thumb-w: 10rem;
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  min-inline-size: 0;
+}
+
+.species.no-frame {
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+}
+
+.species-frame .frame {
+  border: 2px solid var(--film);
+}
+
+.species header {
+  display: grid;
+  align-content: start;
+}
+
+.hours {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.species h2 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--serif);
+  font-size: var(--step-3);
+  font-weight: 700;
+  font-variation-settings: "opsz" 48;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  text-transform: none;
+}
+
+.species h2::before {
+  content: none;
+}
+
+.species .latin {
+  margin: 0;
+  font-size: var(--step-1);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.species .rank {
+  margin: 0 0 var(--space-1);
+  font-family: var(--mono);
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.species p {
+  margin: 0;
+}
+
+.badge {
+  justify-self: start;
+  margin: var(--space-2) 0 0;
+  padding: 0 var(--space-2);
+  border: 2px solid var(--ink);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+.badge.first {
+  border-color: var(--tally);
+  background: var(--tally);
+  color: var(--on-tally);
+}
+
+.tally {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  margin-block: var(--space-3);
+}
+
+.species h2::first-letter {
+  text-transform: uppercase;
+}
+
+.tally-number {
+  font-weight: 700;
+  color: var(--tally);
+}
+
+.tally-line {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.tally-unit {
+  color: var(--ink-soft);
+}
+
+.facts {
+  color: var(--ink-soft);
+}
+
+.facts span {
+  white-space: nowrap;
+}
+
+/* Habits at a glance: one bar per camera hour */
+.hours-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  block-size: 6rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.hour {
+  flex: 1;
+  background: var(--sunken);
+}
+
+.hour.on {
+  background: var(--tally);
+}
+
+.hours-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  color: var(--ink-soft);
+}
+
+/* Burst fold: one thumbnail per burst */
+.bursts {
+  margin: 0;
+}
+
+.bursts h3 {
+  margin: 0 0 var(--space-2);
+  font-family: var(--serif);
+  font-size: var(--step-0);
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.burst-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.burst-list li {
+  flex: 0 0 var(--thumb-w);
+}
+
+.burst-list button {
+  display: grid;
+  inline-size: 100%;
+  min-height: 0;
+  padding: 0;
+  border: 2px solid var(--film);
+  background: var(--film);
+  color: var(--film-ink);
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.burst-list button:hover:not(:disabled) {
+  background: var(--film);
+  color: var(--film-ink);
+  border-color: var(--tally);
+}
+
+.burst-list .strip {
+  white-space: nowrap;
+}
+
+.burst-list .blank {
+  padding: var(--space-5) var(--space-2);
+}
+
+.viewer {
+  max-inline-size: 90vw;
+  max-block-size: 90vh;
+  padding: var(--space-4);
+  border: 2px solid var(--ink);
+  background: var(--raised);
+  color: var(--ink);
+}
+
+.viewer::backdrop {
+  background: rgb(14 18 16 / 0.82);
+}
+
+.viewer h3 {
+  margin: var(--space-3) 0;
+  font-family: var(--mono);
+}
+
+.viewer p {
+  margin: var(--space-2) 0;
+}
+
+.viewer .frame {
+  inline-size: min(70vw, 34rem);
+}
+
+.empty {
+  padding: var(--space-5);
+  border: 2px dashed var(--ink);
+  font-family: var(--serif);
+  font-size: var(--step-1);
+}
+
+/* A species seen once is entered short: a smaller frame, one date, no hour chart */
+@media (min-width: 52.01rem) {
+  .species.once {
+    --frame-w: 13rem;
+  }
+}
+
+.species.once {
+  padding-block: var(--space-4);
+}
+
+.species.once h2 {
+  font-size: var(--step-2);
+}

@@ -1,0 +1,24 @@
+ena24_id,ena24_name,speciesnet_label
+0,Bird,b1352069-a39c-4a84-a949-60044271c0c1;aves;;;;;bird
+1,Eastern Gray Squirrel,86f5b978-4f30-40cc-bd08-be9e3fba27a0;mammalia;rodentia;sciuridae;sciurus;carolinensis;eastern gray squirrel
+2,Eastern Chipmunk,1db1c6e2-2ea9-45a6-ab69-a730133298eb;mammalia;rodentia;sciuridae;tamias;striatus;eastern chipmunk
+3,Woodchuck,b9a7f328-3bb9-4326-9665-cc8ab5d870e1;mammalia;rodentia;sciuridae;marmota;monax;woodchuck
+4,Wild Turkey,94d8284e-6193-43b5-b80c-9029cf951675;aves;galliformes;phasianidae;meleagris;gallopavo;wild turkey
+5,White_Tailed_Deer,5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer
+6,Virginia Opossum,87be3a5c-e60a-4e7e-88c7-21544914d067;mammalia;didelphimorphia;didelphidae;didelphis;virginiana;virginia opossum
+7,Eastern Cottontail,667a4650-a141-4c4e-844e-58cdeaeb4ae1;mammalia;lagomorpha;leporidae;sylvilagus;floridanus;eastern cottontail
+8,Human,990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human
+9,Vehicle,e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle
+10,Striped Skunk,9282b7e4-f3b0-4ef3-9741-cae7f7bd346a;mammalia;carnivora;mephitidae;mephitis;mephitis;striped skunk
+11,Red Fox,ac0e8ba7-7261-4d17-8645-11ed3d02165a;mammalia;carnivora;canidae;vulpes;vulpes;red fox
+12,Eastern Fox Squirrel,e07c537d-08b8-4c31-9768-51e4adf5a5ab;mammalia;rodentia;sciuridae;sciurus;niger;eastern fox squirrel
+13,Northern Raccoon,b57debc1-dff2-48d3-a400-f2b5021e71b0;mammalia;carnivora;procyonidae;procyon;lotor;northern raccoon
+14,Grey Fox,ffe603fc-4920-4302-96d0-65f708bd5b2d;mammalia;carnivora;canidae;urocyon;cinereoargenteus;grey fox
+15,Horse,5109acb4-e503-4147-a175-a3c6aa71f1e3;mammalia;perissodactyla;equidae;equus;caballus;domestic horse
+16,Dog,3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog
+17,American Crow,87fdd451-ca1e-47b1-af43-aa4517cd13bf;aves;passeriformes;corvidae;corvus;brachyrhynchos;american crow
+18,Chicken,cae9534f-f302-4229-9e11-b91138333d92;aves;galliformes;phasianidae;gallus;gallus domesticus;domestic chicken
+19,Domestic Cat,9212982e-8a58-4775-a6ac-e9a43110d8f5;mammalia;carnivora;felidae;felis;catus;domestic cat
+20,Coyote,aaf3b049-36e6-46dd-9a07-8a580e9618b7;mammalia;carnivora;canidae;canis;latrans;coyote
+21,Bobcat,ba76d46e-25de-45e2-90a8-bd279b650f7c;mammalia;carnivora;felidae;lynx;rufus;bobcat
+22,American Black Bear,436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear

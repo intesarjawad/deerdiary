@@ -1,0 +1,138 @@
+{
+  "format": "speciesnet-json-shards-v1",
+  "images": 2000,
+  "source_json_sha256": "1ef0577637164956dbfcfe7ef0692107fc772cfd64325625f9928d8d3c42784a",
+  "metadata": {
+    "info": {
+      "format_version": "20261015"
+    },
+    "deerdiary": {
+      "version": 1,
+      "events": [],
+      "corrections": {},
+      "independence_interval_min": 30
+    }
+  },
+  "shards": [
+    {
+      "file": "wild_default/001.json.gz",
+      "sha256": "a989839f4af06decdb0be1fbcc5bed94122519699fd4a52d515b4ca315bc1475",
+      "images": 100,
+      "bytes": 1289302
+    },
+    {
+      "file": "wild_default/002.json.gz",
+      "sha256": "94fe234a965b92d0b6d614ffa669ad6332a89284c42cf35d137825b2137d3f83",
+      "images": 100,
+      "bytes": 1289425
+    },
+    {
+      "file": "wild_default/003.json.gz",
+      "sha256": "a32f391cbaefd4bbbcca8bea34056c27a47b2bc330a7970f72aac24356fd187b",
+      "images": 100,
+      "bytes": 1144015
+    },
+    {
+      "file": "wild_default/004.json.gz",
+      "sha256": "8f97d085b80dc41bc5ddbc80a1996e865b2026800e770a281e5d7a480ad310e6",
+      "images": 100,
+      "bytes": 862167
+    },
+    {
+      "file": "wild_default/005.json.gz",
+      "sha256": "917a4ae1da3448450f4987289992bcdb065e6c3670c4741b8abe90951ab210ab",
+      "images": 100,
+      "bytes": 815776
+    },
+    {
+      "file": "wild_default/006.json.gz",
+      "sha256": "24ba8830d4fd0cc3d77da87117eef803b45a2d545018418179af481875022fd7",
+      "images": 100,
+      "bytes": 1156993
+    },
+    {
+      "file": "wild_default/007.json.gz",
+      "sha256": "ff5307eb2a5c8d8a41e814c99d6052962b6b04d4601c0cbc0217562a331db18d",
+      "images": 100,
+      "bytes": 857369
+    },
+    {
+      "file": "wild_default/008.json.gz",
+      "sha256": "73caa763e41915f3a79007b6cda276bc46a72f06ce4d008664fda2fc8bb96968",
+      "images": 100,
+      "bytes": 928988
+    },
+    {
+      "file": "wild_default/009.json.gz",
+      "sha256": "86eba96f4fed49784e0f7ca6bdd748845878c119c74aec837f27ce1e8bfeaf4f",
+      "images": 100,
+      "bytes": 932387
+    },
+    {
+      "file": "wild_default/010.json.gz",
+      "sha256": "c74b24627cbf9cf14fcf782a1e1af5692efc96de626f8088b64b1bddec9ca62f",
+      "images": 100,
+      "bytes": 740263
+    },
+    {
+      "file": "wild_default/011.json.gz",
+      "sha256": "66e1220e2fc0c1399a09fca04624b36afbdbf8b9a1591eeb4c80f36927061e71",
+      "images": 100,
+      "bytes": 966672
+    },
+    {
+      "file": "wild_default/012.json.gz",
+      "sha256": "f70ab07e6248655be9b206696e2afc8482a97265cea64a81152ab7e0e7237930",
+      "images": 100,
+      "bytes": 1181776
+    },
+    {
+      "file": "wild_default/013.json.gz",
+      "sha256": "ed8b8eb4c376cd514970efbf77eb9e37c69b461cc8ea30a3627672cb8348516b",
+      "images": 100,
+      "bytes": 1254191
+    },
+    {
+      "file": "wild_default/014.json.gz",
+      "sha256": "901c6cd2aa0f46d75e363d0de736fbf828ee37262265a48223433ebc57b63ffd",
+      "images": 100,
+      "bytes": 1157041
+    },
+    {
+      "file": "wild_default/015.json.gz",
+      "sha256": "72d0ba67b66b5c5105e2ebd3066843bf82b57bb5345349885aeac0ad4dcce1bf",
+      "images": 100,
+      "bytes": 938773
+    },
+    {
+      "file": "wild_default/016.json.gz",
+      "sha256": "ba326799496a4acf4acd6d522e2b469883652e3e38362be630426c7927ba9d25",
+      "images": 100,
+      "bytes": 782150
+    },
+    {
+      "file": "wild_default/017.json.gz",
+      "sha256": "1d908d53ebb0ff90abbaa57d9cd6bd7ecbd864c34348b520c5d956f11b936568",
+      "images": 100,
+      "bytes": 1055790
+    },
+    {
+      "file": "wild_default/018.json.gz",
+      "sha256": "ab22ebab3c2c40054e00b78083b8708d21367e7f7322a8575786e89162d5e819",
+      "images": 100,
+      "bytes": 1147798
+    },
+    {
+      "file": "wild_default/019.json.gz",
+      "sha256": "223729af9412357e3adb6b232593ba76deded0333316566b33b8421642da5aa5",
+      "images": 100,
+      "bytes": 1108729
+    },
+    {
+      "file": "wild_default/020.json.gz",
+      "sha256": "c0d40dd84754b5fd5845bb647668a97e5808a6d4d97fe476718c1fdc87ad4423",
+      "images": 100,
+      "bytes": 1150871
+    }
+  ]
+}

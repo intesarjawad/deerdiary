@@ -1,0 +1,3 @@
+mediaID,deploymentID,captureMethod,timestamp,filePath,filePublic,fileName,fileMediatype,exifData,favorite,mediaComments
+card/DCIM/100MEDIA/a.jpg,card/DCIM,activityDetection,2026-11-01T02:03:04Z,card/DCIM/100MEDIA/a.jpg,true,a.jpg,image/jpeg,,,
+card/DCIM/100MEDIA/b.jpg,card/DCIM,activityDetection,2026-11-01T02:03:24Z,card/DCIM/100MEDIA/b.jpg,true,b.jpg,image/jpeg,,,

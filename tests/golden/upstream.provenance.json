@@ -1,0 +1,107 @@
+{
+  "commit": "aebb5bf852238ee02dac0b82abeb36721ca5bff4",
+  "files": [
+    {
+      "name": "african_elephants.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/african_elephants.jpg",
+      "bytes": 647940,
+      "sha256": "19cd899b473d99fc855bc34369a55860d3b15780c65d42b7b57585fd24d81402"
+    },
+    {
+      "name": "african_elephants_bw.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/african_elephants_bw.jpg",
+      "bytes": 649736,
+      "sha256": "e57fa027142f3e0adaff7b9496c81574c4376233311708a2b54c9cfbbf499140"
+    },
+    {
+      "name": "african_elephants_cmyk.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/african_elephants_cmyk.jpg",
+      "bytes": 1981071,
+      "sha256": "6bc5ed90d8697f7eccceef3f27944e51d5945c5a98b975afabbc21d0f23ac790"
+    },
+    {
+      "name": "african_elephants_truncated_file.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/african_elephants_truncated_file.jpg",
+      "bytes": 600000,
+      "sha256": "5b46576a08dc1a4d7d29026d642fd6017bfa030d5e424769a39114e5c759a76e"
+    },
+    {
+      "name": "african_elephants_with_exif_orientation.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/african_elephants_with_exif_orientation.jpg",
+      "bytes": 1300893,
+      "sha256": "ea63d15ab44a34907392bac3328a4d25e7d6c46ba30a3e40709be4d4be1b13be"
+    },
+    {
+      "name": "american_black_bear.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/american_black_bear.jpg",
+      "bytes": 400725,
+      "sha256": "49cae6c6be95198c6d1c0ae50f4589372dc01a606951a22841a6939ff9d0cd17"
+    },
+    {
+      "name": "blank.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/blank.jpg",
+      "bytes": 409295,
+      "sha256": "77a1bd147f6dee4ba596d3711b726a2b2cb244043587cb876bf85f3e6e8849d1"
+    },
+    {
+      "name": "blank2.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/blank2.jpg",
+      "bytes": 630761,
+      "sha256": "a40f7aa3218040d6e9445617de066d05c2d6e8109fa6ad269f5c96e715bba710"
+    },
+    {
+      "name": "blank3.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/blank3.jpg",
+      "bytes": 614944,
+      "sha256": "ca69d5aa34a3b363dcdb086b763ef9451b22068fb1b02179b4fa076cf3d4f663"
+    },
+    {
+      "name": "domestic_cattle.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/domestic_cattle.jpg",
+      "bytes": 741053,
+      "sha256": "a6cc32ae6f4902c468b8fe18df6ed7855b5e3558a86a6e140c73097e35148405"
+    },
+    {
+      "name": "domestic_dog.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/domestic_dog.jpg",
+      "bytes": 660058,
+      "sha256": "888e03f2ba87a759d07e770b1485ce8a45f849d2981e3a877ecd01d88674b258"
+    },
+    {
+      "name": "gazelles_and_zebra.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/gazelles_and_zebra.jpg",
+      "bytes": 631059,
+      "sha256": "ea7bce8c2c708accdd6e979ab26b47f0fada2c8dcce7565c35f9f7b48fa8e9f0"
+    },
+    {
+      "name": "human.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/human.jpg",
+      "bytes": 1997439,
+      "sha256": "704413ff21ba6af9ae1c509ad7c7460e3f8f6cbfb6411ba61a1330432de71687"
+    },
+    {
+      "name": "human_and_dog.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/human_and_dog.jpg",
+      "bytes": 1020518,
+      "sha256": "08d5bfb99ee532c41b5351bf3b21cad16c97661f099f4ada1b29eeca66aa5a22"
+    },
+    {
+      "name": "ocelot.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/ocelot.jpg",
+      "bytes": 538720,
+      "sha256": "6facb7a54a739767ba639a37097737ce2f903e8504a516255ffe1f9a82e32e6e"
+    },
+    {
+      "name": "vehicle.jpg",
+      "url": "https://raw.githubusercontent.com/google/cameratrapai/aebb5bf852238ee02dac0b82abeb36721ca5bff4/test_data/vehicle.jpg",
+      "bytes": 398043,
+      "sha256": "5d7dcdf80df5a62c85a1521e7f800cda53944b2ba27aa70528dcd95a823f29c3"
+    }
+  ],
+  "repository": "https://github.com/google/cameratrapai",
+  "detector": {
+    "url": "https://github.com/agentmorris/MegaDetector/releases/download/v5.0/md_v5a.0.1.pt",
+    "bytes": 280767041,
+    "sha256": "fe3e90e4b1955821ab7c1f88b446dc0c8cb25e109fdd1872916a55305294a5ef"
+  }
+}

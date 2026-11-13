@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>ORT smoke harness</title></head>
+<body>
+<script type="module">
+  import workerUrl from './ort.ts?worker&url';
+
+  window.runModel = (request) => new Promise((resolve, reject) => {
+    if (!crossOriginIsolated) {
+      reject(new Error('Harness is not cross-origin isolated. Serve it with COOP same-origin and COEP require-corp.'));
+      return;
+    }
+    const worker = new Worker(workerUrl, { type: 'module' });
+    worker.onmessage = (event) => {
+      if (event.data.kind === 'network-resources') return;
+      worker.terminate();
+      resolve(event.data);
+    };
+    worker.onerror = (event) => {
+      worker.terminate();
+      reject(new Error(event.message || `ORT worker module failed to load: ${event.filename || workerUrl}:${event.lineno}:${event.colno}. Check the browser console and failed network requests.`));
+    };
+    worker.postMessage({ ...request, baseUrl: new URL('/', location.href).href });
+  });
+</script>
+</body>
+</html>

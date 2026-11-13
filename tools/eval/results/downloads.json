@@ -1,0 +1,66 @@
+{
+  "budget_bytes": 1500000000,
+  "image_bytes": 926602630,
+  "azure_listing_bytes": 4410509,
+  "metadata_downloaded_bytes": 0,
+  "weights_downloaded_bytes": 0,
+  "new_runtime_wheels": [
+    {
+      "package": "timm",
+      "version": "1.0.31",
+      "bytes": 2798714,
+      "url": "https://files.pythonhosted.org/packages/aa/bb/b909b8f0517a8fa00ffb3a9a0ddb20da9dbe3554eb68dfc3c9a2db99db76/timm-1.0.31-py3-none-any.whl"
+    },
+    {
+      "package": "opencv-python-headless",
+      "version": "4.11.0.86",
+      "bytes": 37326460,
+      "url": "https://files.pythonhosted.org/packages/dc/53/2c50afa0b1e05ecdb4603818e85f7d174e683d874ef63a6abe3ac92220c8/opencv_python_headless-4.11.0.86-cp37-abi3-macosx_13_0_arm64.whl"
+    },
+    {
+      "package": "scipy",
+      "version": "1.17.1",
+      "bytes": 20344366,
+      "url": "https://files.pythonhosted.org/packages/cf/a9/599c28631bad314d219cf9ffd40e985b24d603fc8a2f4ccc5ae8419a535b/scipy-1.17.1-cp312-cp312-macosx_14_0_arm64.whl"
+    },
+    {
+      "package": "gradio",
+      "version": "4.44.1",
+      "bytes": 18068711,
+      "url": "https://files.pythonhosted.org/packages/3f/6e/c0726e138f64cd98379a7bf95f4f3b15dd5a9f004b172540cee5653ec820/gradio-4.44.1-py3-none-any.whl"
+    },
+    {
+      "package": "opencv-python",
+      "version": "4.11.0.86",
+      "bytes": 37326322,
+      "url": "https://files.pythonhosted.org/packages/05/4d/53b30a2a3ac1f75f65a59eb29cf2ee7207ce64867db47036ad61743d5a23/opencv_python-4.11.0.86-cp37-abi3-macosx_13_0_arm64.whl"
+    },
+    {
+      "package": "polars-runtime-32",
+      "version": "2.1.0",
+      "bytes": 47626883,
+      "url": "https://files.pythonhosted.org/packages/fe/38/07066430ac655a8cab2f9e96ea1fec6ca1f20ec47844afe117662d43ace0/polars_runtime_32-2.1.0-cp311-abi3-macosx_11_0_arm64.whl"
+    },
+    {
+      "package": "pillow-avif-plugin",
+      "version": "1.6.0",
+      "bytes": 3698858,
+      "url": "https://files.pythonhosted.org/packages/ac/6c/eae2a956a9722b55b37b37488bea13fc19af782f1e14546bfbd034308a8b/pillow_avif_plugin-1.6.0-cp312-cp312-macosx_11_0_arm64.whl"
+    },
+    {
+      "package": "ultralytics",
+      "version": "8.4.202",
+      "bytes": 1440905,
+      "url": "https://files.pythonhosted.org/packages/02/b3/d8a3d0d0b4d209659a8ea0bd9dec2171f329823f3baa5344eedb349fb24d/ultralytics-8.4.202-py3-none-any.whl"
+    },
+    {
+      "package": "tensorboard",
+      "version": "2.20.0",
+      "bytes": 5525680,
+      "url": "https://files.pythonhosted.org/packages/9c/d9/a5db55f88f258ac669a92858b70a714bbbd5acd993820b41ec4a96a4d77f/tensorboard-2.20.0-py3-none-any.whl"
+    }
+  ],
+  "known_payload_bytes": 1105170038,
+  "unmetered_allowance_bytes": 50000000,
+  "notes": "Metadata and model weights reused. Runtime wheels identified by uv download log and installed WHEEL tags, sizes from lockfile. Package-index metadata, two source builds, HTTP headers and one interrupted image transfer were not metered; reserve 50 MB for them. Later pycountry/onnxruntime sync used cached packages."
+}

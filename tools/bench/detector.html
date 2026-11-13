@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Detector benchmark</title></head>
+  <body>
+    <h1>Detector benchmark</h1>
+    <p>Local development measurement. Each export uses the same verified PIL image tensors. Timings exclude loading, preprocessing and warm-up. WebGPU permits WASM operator fallback.</p>
+    <form id="controls">
+      <label>Timed inferences per model <input id="count" type="number" min="1" max="10000" value="32" required></label>
+      <label>Requested provider <select id="backend"><option value="webgpu">WebGPU with WASM fallback</option><option value="wasm">WASM</option></select></label>
+      <button type="submit">Run benchmark</button>
+    </form>
+    <p id="status" role="status">Ready</p>
+    <a id="download" href="#result" hidden download="detector-benchmark.json">Save report JSON</a>
+    <pre id="result"></pre>
+    <script type="module" src="./detector.ts"></script>
+  </body>
+</html>

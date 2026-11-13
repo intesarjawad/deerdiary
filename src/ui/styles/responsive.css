@@ -1,0 +1,88 @@
+@media (min-width: 52.01rem) and (max-width: 72rem) {
+  .species,
+  .species.no-frame {
+    grid-template-columns: var(--frame-w) minmax(0, 1fr);
+  }
+
+  .species.no-frame {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .species-side {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 52rem) {
+  :root {
+    --frame-w: 100%;
+    --thumb-w: 100%;
+  }
+
+  .species,
+  .species.no-frame {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .burst-list li {
+    flex-basis: calc(50% - var(--space-3));
+  }
+
+  main[data-results="true"] .masthead {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: none;
+  }
+
+  main[data-results="true"] .intake {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main[data-results="true"] .dropzone {
+    grid-auto-flow: row;
+  }
+
+  .rail label {
+    display: grid;
+    inline-size: 100%;
+  }
+
+  .rail select {
+    inline-size: 100%;
+  }
+
+  .empty-folder {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile img {
+    transition: none;
+  }
+
+  .reel-shot.is-active img {
+    animation: none;
+  }
+
+  .reel-slide,
+  .fold-part,
+  .tile,
+  .tile::after,
+  .plate-stage,
+  .plate-stage::before,
+  .plate-stage::after {
+    transition: none;
+  }
+
+  .baseline,
+  .pile-count,
+  .pile-name,
+  .quiet-label {
+    animation: none;
+    opacity: 1;
+  }
+
+  .intake {
+    transition: none;
+  }
+}

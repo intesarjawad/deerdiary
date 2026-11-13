@@ -1,0 +1,36 @@
+name: Models check
+
+on:
+  # Scheduled runs stay disabled until models:fetch performs real integrity checks.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run models:fetch -- --all --no-cache
+      - name: New SpeciesNet release
+        run: |
+          pinned=$(jq -r .upstream.speciesnet_pypi models/manifest.json)
+          latest=$(curl -fsS https://pypi.org/pypi/speciesnet/json | jq -r .info.version)
+          test "$pinned" = "$latest" || { echo "speciesnet $latest is out; the manifest pins $pinned"; exit 1; }
+      - if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh issue create --title "Model check failed"
+          --body "Run ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          found a missing model file, a hash mismatch or a new SpeciesNet release."

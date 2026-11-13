@@ -1,0 +1,63 @@
+{
+  "name": "deerdiary",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A diary of the animals on a trail camera. Browse the sample; your own photos need local setup.",
+  "license": "MIT",
+  "homepage": "https://deerdiary.intesarjawad.com/",
+  "bin": {
+    "deerdiary": "bin/serve.mjs"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node -e \"const s='node_modules/onnxruntime-web/dist/',d='public/ort/';fs.mkdirSync(d,{recursive:true});for(const n of ['ort-wasm-simd-threaded.asyncify.mjs','ort-wasm-simd-threaded.asyncify.wasm'])fs.copyFileSync(s+n,d+n)\"",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "check": "biome check . && tsc --noEmit && vitest run",
+    "test": "vitest",
+    "e2e": "playwright test",
+    "size": "tsx tools/bench/bundle_size.ts",
+    "prepare": "git config core.hooksPath > /dev/null || git config core.hooksPath .githooks",
+    "bench:photos": "tsx tools/bench/bench_photos.ts",
+    "bench:audio": "tsx tools/bench/bench_audio.ts",
+    "eval:report": "cd tools && uv run --locked python eval/report.py",
+    "docs:coldstart": "tsx tools/coldstart/coldstart.ts docs",
+    "docs:bench": "tsx tools/bench/docs.ts",
+    "models:fetch": "node tools/pending.mjs models:fetch 'model downloads'",
+    "sample:predict": "tsx tools/sample/predict_sample.ts",
+    "sample:thumbs": "tsx tools/sample/rebuild_thumbs.ts",
+    "sample:score": "tsx tools/sample/score_sample.ts",
+    "craft": "node tools/pending.mjs craft 'interface checks'",
+    "coldstart": "tsx tools/coldstart/coldstart.ts",
+    "facts": "node tools/pending.mjs facts 'public facts verification'"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "2.10.6",
+    "@types/node": "26.6.6",
+    "typescript": "7.0.2",
+    "vite": "8.3.7",
+    "preact": "11.2.0",
+    "@preact/signals": "2.11.4",
+    "onnxruntime-web": "1.31.1",
+    "exifr": "7.1.3",
+    "idb": "8.0.4",
+    "jpeg-js": "0.4.4",
+    "mediabunny": "1.65.2",
+    "@biomejs/biome": "2.6.6",
+    "fast-check": "4.10.2",
+    "vitest": "5.1.0",
+    "@playwright/test": "1.65.0",
+    "@axe-core/playwright": "4.14.0",
+    "@types/wicg-file-system-access": "2023.10.7",
+    "@webgpu/types": "0.1.74",
+    "tsx": "4.23.15"
+  }
+}

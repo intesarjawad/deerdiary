@@ -1,0 +1,8 @@
+{
+  "name": "Deerdiary",
+  "short_name": "Deerdiary",
+  "description": "Drop a trail-camera card and get a species diary, in your browser.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone"
+}

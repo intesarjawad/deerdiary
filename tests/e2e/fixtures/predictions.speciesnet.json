@@ -1,0 +1,150 @@
+{
+  "info": { "format_version": "20261015" },
+  "predictions": [
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0001.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "label": "animal",
+          "conf": 0.92,
+          "bbox": [0.1, 0.2, 0.3, 0.4],
+          "raw_classifications": {
+            "classes": [
+              "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+              "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose",
+              "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+              "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+              "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+            ],
+            "scores": [0.91, 0.04, 0.02, 0.01, 0.01]
+          },
+          "processed_classification": {
+            "class": "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+            "score": 0.91,
+            "source": "classifier"
+          }
+        },
+        {
+          "category": "1",
+          "label": "animal",
+          "conf": 0.81,
+          "bbox": [0.5, 0.3, 0.2, 0.3],
+          "raw_classifications": {
+            "classes": [
+              "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+              "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose",
+              "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+              "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+              "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+            ],
+            "scores": [0.87, 0.06, 0.03, 0.02, 0.01]
+          },
+          "processed_classification": {
+            "class": "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+            "score": 0.87,
+            "source": "classifier"
+          }
+        }
+      ]
+    },
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0002.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "label": "animal",
+          "conf": 0.88,
+          "bbox": [0.2, 0.2, 0.3, 0.4],
+          "raw_classifications": {
+            "classes": [
+              "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+              "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose",
+              "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+              "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+              "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+            ],
+            "scores": [0.9, 0.05, 0.02, 0.01, 0.01]
+          },
+          "processed_classification": {
+            "class": "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+            "score": 0.9,
+            "source": "classifier"
+          }
+        }
+      ]
+    },
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0003.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "label": "animal",
+          "conf": 0.9,
+          "bbox": [0.4, 0.4, 0.2, 0.3],
+          "raw_classifications": {
+            "classes": [
+              "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+              "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose",
+              "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+              "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+              "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+            ],
+            "scores": [0.93, 0.03, 0.02, 0.01, 0.01]
+          },
+          "processed_classification": {
+            "class": "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+            "score": 0.93,
+            "source": "classifier"
+          }
+        }
+      ]
+    },
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0004.JPG",
+      "detections": [
+        {
+          "category": "1",
+          "label": "animal",
+          "conf": 0.94,
+          "bbox": [0.3, 0.3, 0.4, 0.5],
+          "raw_classifications": {
+            "classes": [
+              "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+              "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+              "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+              "5c7ce479-8a45-40b3-ae21-7c97dfae22f5;mammalia;artiodactyla;cervidae;odocoileus;virginianus;white-tailed deer",
+              "429257d4-3ef2-47fb-b849-66ee6c107346;mammalia;artiodactyla;cervidae;alces;alces;moose"
+            ],
+            "scores": [0.89, 0.06, 0.02, 0.01, 0.01]
+          },
+          "processed_classification": {
+            "class": "436ddfdd-bc43-44c3-a25d-34671d3430a0;mammalia;carnivora;ursidae;ursus;americanus;american black bear",
+            "score": 0.89,
+            "source": "classifier"
+          }
+        }
+      ]
+    },
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0005.JPG",
+      "detections": []
+    },
+    {
+      "filepath": "/data/card/DCIM/100MEDIA/IMG_0006.JPG",
+      "detections": [
+        {
+          "category": "2",
+          "label": "human",
+          "conf": 0.97,
+          "bbox": [0.1, 0.1, 0.2, 0.6],
+          "processed_classification": {
+            "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+            "score": 0.97,
+            "source": "detector"
+          }
+        }
+      ]
+    }
+  ]
+}

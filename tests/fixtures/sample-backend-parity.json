@@ -1,0 +1,130 @@
+{
+  "comparison": "Committed WASM sample from tools/sample/predict_sample.ts",
+  "detector": "mdv6-apa-rtdetr-c-fp32",
+  "classifier": "speciesnet-v403a-fp16",
+  "country": "USA",
+  "scoreTolerance": 0.005,
+  "boxTolerance": 0.001,
+  "requestedBackend": "webgpu",
+  "actualBackend": "webgpu",
+  "samplePhotos": 60,
+  "matches": false,
+  "differences": [
+    {
+      "path": "sample/5a0c9b97-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59a94d71-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 4"
+    },
+    {
+      "path": "sample/598de821-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "detector score 4"
+    },
+    {
+      "path": "sample/59adfc81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59adfc81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "source 2"
+    },
+    {
+      "path": "sample/59adfc81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 2"
+    },
+    {
+      "path": "sample/59adfc81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "label 2"
+    },
+    {
+      "path": "sample/59adfc81-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 3"
+    },
+    {
+      "path": "sample/59fc7e3f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59bac875-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 1"
+    },
+    {
+      "path": "sample/59c31a69-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/598f78ea-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 3"
+    },
+    {
+      "path": "sample/59b615dd-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 3"
+    },
+    {
+      "path": "sample/598acfb8-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 1"
+    },
+    {
+      "path": "sample/5a1caeda-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "source 0"
+    },
+    {
+      "path": "sample/5a1caeda-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/5a1caeda-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "label 0"
+    },
+    {
+      "path": "sample/5a2af458-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "label 4"
+    },
+    {
+      "path": "sample/5a1640eb-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 3"
+    },
+    {
+      "path": "sample/59817bf8-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 3"
+    },
+    {
+      "path": "sample/597cd73f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/597cd73f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 1"
+    },
+    {
+      "path": "sample/597cd73f-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 2"
+    },
+    {
+      "path": "sample/59c99c1c-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59c99c1c-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 1"
+    },
+    {
+      "path": "sample/596a4de5-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59c4bfd1-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 0"
+    },
+    {
+      "path": "sample/59b61775-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 1"
+    },
+    {
+      "path": "sample/59b61775-23d2-11e8-a6a3-ec086b02610b.jpg",
+      "detail": "classifier score 2"
+    }
+  ]
+}

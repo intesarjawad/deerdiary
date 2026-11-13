@@ -1,0 +1,62 @@
+{
+  "wall_seconds": 2906.563362375018,
+  "images": 2000,
+  "images_from_checkpoint": 992,
+  "speciesnet_version": "5.0.6",
+  "model_version": "4.0.3a",
+  "country": "USA",
+  "batch_size": 1,
+  "max_classifications_per_image": 5,
+  "max_classifications_per_detection": 5,
+  "weights": {
+    "classifier": {
+      "file": "always_crop_99710272_22x8_v12_epoch_00148.pt",
+      "bytes": 224393837,
+      "sha256": "d099632044e92a0446869e06e5eb282e24706d5266b4acf5b42f5f23e2b50ade"
+    },
+    "detector": {
+      "file": "https___github.com_agentmorris_MegaDetector_releases_download_v5.0_md_v5a.0.1.pt",
+      "bytes": 280767041,
+      "sha256": "fe3e90e4b1955821ab7c1f88b446dc0c8cb25e109fdd1872916a55305294a5ef"
+    }
+  },
+  "weights_downloaded_bytes": 0,
+  "filepath_normalization": "Relative to input folder; all prediction fields retained",
+  "command": [
+    "python",
+    "-m",
+    "speciesnet.scripts.run_model",
+    "--model",
+    "<cached-v4.0.3a>",
+    "--folders",
+    "tools/eval/data/eval_2000",
+    "--country",
+    "USA",
+    "--max_classifications_per_image",
+    "5",
+    "--max_classifications_per_detection",
+    "5",
+    "--batch_size",
+    "1",
+    "--progress_bars",
+    "--noignore_existing_predictions",
+    "--predictions_json",
+    "tools/eval/results/official_usa.json"
+  ],
+  "prior_interrupted_attempts": [
+    {
+      "wall_seconds": 2808,
+      "checkpoint_predictions_reused": 492,
+      "checkpoint_sha256": "bd8c0b907822a7a486cfe50e430e65d901bad12a9aaf128690526296a2a2199e",
+      "process_nice": 15,
+      "reason": "Resumed at existing worker nice 5 after discovering compounded nice 15 starvation; same model, top-five flags and one-thread math limits."
+    },
+    {
+      "last_observed_wall_seconds": 3517.77215719223,
+      "timing_scope": "Lower bound from log creation through final observed output before process termination",
+      "checkpoint_predictions_reused": 992,
+      "process_nice": 5
+    }
+  ],
+  "wall_seconds_timing_scope": "Final resumed invocation; earlier interrupted attempts recorded separately"
+}

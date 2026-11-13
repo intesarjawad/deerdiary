@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: If you use Deerdiary, please cite it as below.
+title: "Deerdiary: a species diary from trail camera photos, processed in the browser"
+type: software
+authors:
+  - family-names: Jawad
+    given-names: Intesar
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/intesarjawad/deerdiary"
+abstract: >-
+  Deerdiary turns a trail camera SD card into a species diary, an activity clock and a
+  highlight reel, with detection and classification done in the browser.
+keywords:
+  - trail camera
+  - camera traps
+  - wildlife monitoring
+  - species classification

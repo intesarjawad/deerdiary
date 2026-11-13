@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-11-06T18:00:00.000Z",
+  "machine": "Apple M4 Pro, arm64, 48 GB",
+  "chromeVersion": "141.0.7390.55",
+  "ortVersion": "1.31.1",
+  "mode": "default",
+  "photos": {
+    "distinct": 42,
+    "fed": 10000,
+    "medianMegapixels": 12,
+    "upscaled": true
+  },
+  "backends": [
+    {
+      "backend": "webgpu",
+      "actualBackend": "webgpu",
+      "photos": 10000,
+      "failedPhotos": 0,
+      "photosPerSecond": 18.42,
+      "firstCardMs": 2140.5,
+      "stageMs": {
+        "decode": 42.8,
+        "preprocess": 6.1,
+        "detect": 12.7,
+        "classify": 22.4,
+        "ensemble": 0.4,
+        "thumbnail": 3.2,
+        "total": 88.1
+      },
+      "peakTreeRssBytes": 4831838208,
+      "rssSlopeBytesPerPhoto": 153600
+    },
+    {
+      "backend": "wasm",
+      "actualBackend": "wasm",
+      "photos": 10000,
+      "failedPhotos": 0,
+      "photosPerSecond": 3.61,
+      "firstCardMs": 5120,
+      "stageMs": {
+        "decode": 43.5,
+        "preprocess": 6.4,
+        "detect": 168,
+        "classify": 52,
+        "ensemble": 0.5,
+        "thumbnail": 3.3,
+        "total": 274
+      },
+      "peakTreeRssBytes": 3221225472,
+      "rssSlopeBytesPerPhoto": 34800
+    }
+  ]
+}

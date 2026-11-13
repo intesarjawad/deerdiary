@@ -1,0 +1,388 @@
+/* Masthead: the wordmark, the one-line promise and the gate that takes the card */
+.masthead {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.masthead .title {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.masthead h1,
+.masthead .wordmark {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--step-4);
+  font-weight: 500;
+  font-variation-settings: "opsz" 72;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.03em;
+}
+
+.masthead .lede {
+  margin: 0;
+  max-inline-size: 30ch;
+  color: var(--ink-soft);
+  font-size: var(--step-1);
+  line-height: 1.3;
+  font-variation-settings: "opsz" 24;
+}
+
+/* The gate is cut like the card it takes: one corner clipped */
+.intake {
+  --notch: 1.25rem;
+
+  position: relative;
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+  background: var(--raised);
+  clip-path: polygon(0 0, calc(100% - var(--notch)) 0, 100% var(--notch), 100% 100%, 0 100%);
+  transition: background-color var(--dur-fast) var(--ease);
+}
+
+.intake > [role="alert"],
+.intake > .notice {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.intake > .notice {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink-soft);
+}
+
+.intake:has(.is-dragging) {
+  background: var(--tally-wash);
+}
+
+.dropzone {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+  margin: 0;
+}
+
+.dropzone .drop-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  font-weight: 500;
+  font-variation-settings: "opsz" 36;
+  line-height: 1.15;
+}
+
+.intake:has(.is-dragging) .drop-title {
+  color: var(--tally);
+}
+
+.dropzone .hint {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.sample-note {
+  color: var(--ink-soft);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  margin: 0;
+}
+
+.rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+  align-items: center;
+  margin: 0;
+  padding: var(--space-3) 0 0;
+  border-top: 1px solid var(--rule);
+  font-size: var(--step--1);
+}
+
+.rail[data-idle="true"] > span:first-child {
+  display: none;
+}
+
+.rail .bar {
+  flex: 1 1 10rem;
+  block-size: 0.5rem;
+  background: var(--sunken);
+}
+
+.rail .bar > span {
+  display: block;
+  block-size: 100%;
+  background: var(--tally);
+  transform-origin: left;
+}
+
+.rail label,
+.country label {
+  display: inline-flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.rail select,
+.country select {
+  min-height: 0;
+  max-inline-size: 16rem;
+  padding: 0 var(--space-1);
+  border: 0;
+  border-bottom: 1px dashed var(--ink);
+  border-radius: 0;
+  background: transparent;
+  font-size: inherit;
+  font-weight: 600;
+}
+
+/* An empty or wrong folder gets its own explanation and picture */
+.empty-folder {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+  inline-size: 100%;
+  padding: var(--space-3) var(--space-4);
+  border-left: 6px solid var(--tally);
+  background: var(--sunken);
+}
+
+.empty-film {
+  inline-size: 8.5rem;
+  block-size: auto;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.empty-film .gap {
+  stroke-dasharray: 4 3;
+  stroke: var(--ink-soft);
+}
+
+.empty-film path {
+  stroke: var(--tally);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.empty-title {
+  margin: 0 0 var(--space-1);
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+.empty-body {
+  margin: 0;
+  max-inline-size: 46ch;
+}
+
+@media (min-width: 64rem) {
+  main[data-results="false"] {
+    max-inline-size: 92rem;
+    padding: var(--space-4) var(--space-5) var(--space-7);
+  }
+
+  .masthead[data-hero="true"] {
+    grid-template-columns: minmax(0, 1fr) 26rem;
+    grid-template-areas:
+      "figure title"
+      "figure gate"
+      "figure sheet"
+      "figure country";
+    grid-template-rows: auto auto 1fr auto;
+    column-gap: var(--space-6);
+    row-gap: var(--space-4);
+  }
+
+  .masthead[data-hero="true"] .title {
+    grid-area: title;
+  }
+
+  .masthead[data-hero="true"] .intake {
+    grid-area: gate;
+  }
+
+  .masthead[data-hero="true"] .country {
+    grid-area: country;
+  }
+
+  .masthead[data-hero="true"] .lede {
+    font-size: 0.9375rem;
+  }
+
+  .masthead[data-hero="true"] .intake {
+    gap: var(--space-2);
+    padding-block: var(--space-3);
+  }
+
+  .masthead[data-hero="true"] .dropzone {
+    gap: var(--space-2);
+  }
+
+  .masthead[data-hero="true"] .sample-note,
+  .masthead[data-hero="true"] .dropzone .hint,
+  .masthead[data-hero="true"] .rail {
+    font-size: var(--step--1);
+  }
+
+  .masthead[data-hero="true"] .rail {
+    padding-block-start: var(--space-2);
+  }
+
+  .masthead[data-hero="true"] .country {
+    font-size: var(--step--1);
+  }
+
+  .masthead[data-hero="true"] .country span[id] {
+    display: block;
+  }
+
+  .masthead[data-hero="true"] .rail select {
+    max-inline-size: 10.5rem;
+  }
+
+  .masthead[data-hero="true"] .rail span[id] {
+    display: block;
+  }
+}
+
+/* With a diary on screen the gate steps back so the roll leads */
+main[data-results="true"] .masthead {
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-rows: auto;
+  align-items: center;
+}
+
+main[data-results="true"] .masthead h1 {
+  font-size: var(--step-2);
+}
+
+main[data-results="true"] .masthead .lede {
+  display: none;
+}
+
+main[data-results="true"] .masthead .title {
+  align-self: center;
+}
+
+main[data-results="true"] .intake {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  padding: 1.6rem var(--space-4) 1.1rem;
+}
+
+main[data-results="true"] .dropzone {
+  grid-auto-flow: column;
+  justify-content: start;
+  align-items: center;
+}
+
+main[data-results="true"] .drop-title,
+main[data-results="true"] .dropzone .hint {
+  display: none;
+}
+
+main[data-results="true"] .rail {
+  padding: 0;
+  border: 0;
+}
+
+.rail #country-note,
+.rail span[id],
+.country span[id] {
+  color: var(--ink-soft);
+}
+
+/* Below the gate: two quiet blocks, one for files brought in, one for the saved diaries */
+.aftercare {
+  display: grid;
+  gap: var(--space-5) var(--space-6);
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--rule);
+}
+
+.aftercare > section {
+  margin: 0;
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+  justify-items: start;
+}
+
+.aftercare h2 {
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+.aftercare p {
+  margin: 0;
+  max-inline-size: 46ch;
+}
+
+@media (min-width: 53rem) {
+  .aftercare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Before a diary the joiner leads; the gate is a quiet way in, with one solid action */
+.masthead[data-hero="true"] .wordmark {
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.masthead[data-hero="true"] .intake {
+  background: transparent;
+  border-block-start: 1px solid var(--rule-strong);
+  clip-path: none;
+  padding-inline: 0;
+}
+
+.masthead[data-hero="true"] .dropzone .drop-title {
+  font-size: var(--step-0);
+}
+
+.masthead[data-hero="true"] .dropzone .primary {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+
+.masthead[data-hero="true"] .dropzone .primary:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.masthead[data-hero="true"] .try-sample {
+  padding-inline: var(--space-1);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--tally);
+  text-underline-offset: 0.25em;
+}
+
+.masthead[data-hero="true"] .try-sample:hover:not(:disabled) {
+  background: transparent;
+  color: var(--tally);
+}
+
+/* The quiet gate keeps two lines: its actions and the formats it reads */
+.masthead[data-hero="true"] .sample-note {
+  display: none;
+}

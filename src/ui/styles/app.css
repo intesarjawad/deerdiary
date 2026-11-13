@@ -1,0 +1,650 @@
+/* Controls */
+button,
+.file-button {
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--raised);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease);
+}
+
+button:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--raised);
+}
+
+button:disabled {
+  cursor: progress;
+  color: var(--ink-soft);
+  border-color: var(--rule);
+  background: var(--sunken);
+}
+
+.primary {
+  border-color: var(--tally);
+  background: var(--tally);
+  color: var(--on-tally);
+}
+
+.primary:hover:not(:disabled) {
+  border-color: var(--tally-strong);
+  background: var(--tally-strong);
+  color: var(--on-tally);
+}
+
+input[type="text"],
+input[type="search"],
+input:not([type]),
+select {
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--raised);
+  color: var(--ink);
+  font: inherit;
+}
+
+/* A file picker is a button like the gate's: the browser control stays, unseen, inside the label */
+.file-action {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--raised);
+  color: var(--ink);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.file-action:hover {
+  background: var(--sunken);
+}
+
+.file-action:focus-within {
+  outline: 3px solid var(--tally);
+  outline-offset: 2px;
+}
+
+input[type="checkbox"] {
+  inline-size: 1.125rem;
+  block-size: 1.125rem;
+  accent-color: var(--tally);
+  vertical-align: -0.2em;
+}
+
+progress {
+  inline-size: min(100%, 22rem);
+  block-size: 0.75rem;
+  vertical-align: middle;
+  accent-color: var(--tally);
+}
+
+/* Notices */
+[role="alert"] {
+  margin-block: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-left: 4px solid var(--danger);
+  background: var(--danger-wash);
+  color: var(--danger);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+[role="alert"] a {
+  color: inherit;
+}
+
+.notice {
+  margin-block: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-left: 6px solid var(--tally);
+  background: var(--raised);
+  overflow-wrap: anywhere;
+}
+
+.facts span {
+  white-space: nowrap;
+}
+
+/* Import */
+.import {
+  margin-block: var(--space-5);
+}
+
+/* Frames: the dark mat and burnt-in data strip of a trail camera */
+.frame {
+  position: relative;
+  display: block;
+  max-inline-size: 100%;
+  overflow: hidden;
+  background: var(--film);
+  color: var(--signal);
+}
+
+.frame img {
+  filter: saturate(0.12) brightness(1.08);
+  transition: filter 300ms var(--ease);
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.box {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid var(--signal);
+  box-shadow: 0 0 0 1px var(--film);
+  pointer-events: none;
+}
+
+.strip {
+  display: block;
+  padding-block: var(--space-1);
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  overflow-wrap: anywhere;
+}
+
+/* Diary footer: totals and the request meter */
+.diary-footer {
+  margin-top: var(--space-5);
+  padding: var(--space-3) var(--space-4);
+  background: var(--film);
+  color: var(--film-ink);
+  font-size: var(--step--1);
+}
+
+.diary-footer p {
+  margin: var(--space-1) 0;
+}
+
+.diary-footer a {
+  color: #aebdff;
+}
+
+.empty {
+  padding: var(--space-5);
+  border: 2px dashed var(--ink);
+  font-family: var(--serif);
+  font-size: var(--step-1);
+}
+
+/* Clock */
+.clock {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+}
+
+.clock-dial {
+  display: inline-block;
+  max-inline-size: 100%;
+  padding: var(--space-3);
+  background: var(--raised);
+  border: 2px solid var(--ink);
+  color: var(--tally);
+}
+
+.clock-dial svg {
+  display: block;
+  inline-size: min(100%, 24rem);
+  block-size: auto;
+}
+
+.clock-dial .spoke {
+  stroke: currentColor;
+  stroke-width: 4;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+.clock-dial .spoke.is-selected {
+  stroke: var(--tally);
+  stroke-width: 7;
+  opacity: 1;
+}
+
+.clock-dial .ring {
+  fill: none;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.clock-dial .mark {
+  fill: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.clock-readout {
+  margin: 0;
+}
+
+.crop img {
+  position: absolute;
+  max-inline-size: none;
+}
+
+/* Reel */
+.reel {
+  display: grid;
+  gap: var(--space-3);
+  justify-items: start;
+}
+
+.reel p {
+  margin: 0;
+}
+
+.reel-stage {
+  position: relative;
+  inline-size: min(100%, 36rem);
+  container-type: inline-size;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--film);
+  color: var(--film-ink);
+}
+
+.reel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--reel-fade) ease-in-out;
+}
+
+.reel-slide.is-active {
+  opacity: 1;
+}
+
+.reel-shot img {
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.reel-shot.is-active img {
+  animation: reel-drift var(--reel-shot) linear both;
+}
+
+@keyframes reel-drift {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(var(--reel-scale));
+  }
+}
+
+.reel-missing {
+  padding: var(--space-4);
+}
+
+.reel-end {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 2cqi;
+  padding: 4cqi;
+  font-size: 2.6cqi;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  background: var(--film);
+}
+
+main h3 {
+  font-size: var(--step-0);
+}
+
+.reel-end h3 {
+  font-size: 4cqi;
+  margin: 0;
+  font-family: var(--serif);
+}
+
+.reel-end ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+}
+
+.reel-end p {
+  margin: 0;
+}
+
+.reel-end a {
+  color: inherit;
+}
+
+.reel-live {
+  font-size: var(--step--1);
+}
+
+/* Corrections: the card's species, each with one row per burst, its photo and its date */
+.corrections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-6) var(--space-5);
+  align-items: start;
+  padding: 0;
+  list-style: none;
+}
+
+.kind-name {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-2);
+  align-items: baseline;
+  margin: 0 0 var(--space-3);
+  font-family: var(--serif);
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+.kind-name i {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.corrections .kind-count {
+  color: var(--ink-faint);
+  font-size: var(--step--1);
+  font-weight: 400;
+}
+
+.kind-bursts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-3) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* An open burst takes the whole width, so its explanation is not squeezed into a column */
+.corrections .kind:has(.is-open) {
+  grid-column: 1 / -1;
+}
+
+/* A row's actions come forward on hover or keyboard focus; on touch screens they always show */
+@media (hover: hover) {
+  .corrections .burst:not(:hover, :focus-within) .row-actions {
+    opacity: 0;
+  }
+}
+
+.corrections .burst {
+  display: grid;
+  grid-template-columns: 7rem minmax(0, 1fr);
+  grid-template-areas:
+    "thumb when"
+    "thumb species"
+    "why why";
+  column-gap: var(--space-4);
+  align-items: start;
+}
+
+.corrections .thumb {
+  position: relative;
+  grid-area: thumb;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--film);
+}
+
+.corrections .thumb img {
+  position: absolute;
+  max-inline-size: none;
+}
+
+.corrections .when {
+  grid-area: when;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.burst-species {
+  grid-area: species;
+  display: grid;
+  gap: var(--space-2);
+  margin: var(--space-1) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.burst-species > li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  align-items: baseline;
+}
+
+.burst-species .taxon {
+  margin: 0;
+}
+
+.burst-species .row-actions {
+  display: flex;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.burst-species .row-actions button {
+  min-block-size: 2.75rem;
+  padding: 0 var(--space-1);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--ink-faint);
+  text-underline-offset: 0.25em;
+}
+
+.burst-species .row-actions button[aria-expanded="true"] {
+  text-decoration-color: var(--tally);
+}
+
+.burst-species .edit {
+  flex-basis: 100%;
+}
+
+.corrections .why {
+  grid-area: why;
+  margin-block-start: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--sunken);
+}
+
+.corrections .why > section {
+  margin: 0;
+}
+
+.options {
+  inline-size: min(100%, 28rem);
+  max-block-size: 16rem;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  border: 2px solid var(--ink);
+  background: var(--raised);
+}
+
+.option {
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+}
+
+/* Coral is kept for links and the count; a chosen option is inked, not lit */
+.option[aria-selected="true"],
+.option:hover {
+  background: var(--ink);
+  color: var(--ground);
+}
+
+.crop {
+  position: relative;
+  display: block;
+  inline-size: 18rem;
+  aspect-ratio: 4 / 3;
+  max-inline-size: 100%;
+  overflow: hidden;
+  border: 2px solid var(--signal);
+  background: var(--film);
+}
+
+.corrections label {
+  display: block;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.corrections input {
+  inline-size: min(100%, 28rem);
+}
+
+.viewer .frame {
+  inline-size: min(70vw, 34rem);
+}
+
+/* History */
+.sessions {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sessions article {
+  margin: 0;
+  padding: var(--space-4);
+  border: 2px solid var(--ink);
+  background: var(--raised);
+}
+
+.sessions h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: var(--step-1);
+}
+
+.vh {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+main h2 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--serif);
+  font-size: var(--step-2);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.text-button {
+  min-height: 0;
+  padding: var(--space-1) 0;
+  border: 0;
+  border-bottom: 2px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: var(--step--1);
+}
+
+.text-button:hover:not(:disabled) {
+  background: transparent;
+  border-color: var(--tally);
+  color: var(--tally);
+}
+
+.frame:hover img {
+  filter: none;
+}
+
+.kind-name,
+.burst-species,
+.burst-species > li,
+.options,
+.reel-live {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+.camtrap-form {
+  max-inline-size: 48rem;
+  border-block-start: 1px solid var(--rule);
+  padding-block-start: var(--space-4);
+}
+
+.camtrap-form fieldset {
+  min-inline-size: 0;
+  margin: var(--space-4) 0;
+  padding: var(--space-3);
+  border: 1px solid var(--rule);
+}
+
+.camtrap-form legend {
+  max-inline-size: 100%;
+  padding-inline: var(--space-2);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.camtrap-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+}
+
+.camtrap-field {
+  display: grid;
+  align-content: start;
+  gap: var(--space-1);
+  min-inline-size: 0;
+}
+
+.camtrap-field label {
+  overflow-wrap: anywhere;
+}
+
+.camtrap-field input,
+.camtrap-field select {
+  inline-size: 100%;
+  min-inline-size: 0;
+}
+
+.camtrap-field [aria-invalid="true"] {
+  border-color: var(--danger);
+}
+
+.camtrap-error {
+  color: var(--danger);
+}
+
+fieldset.aftercare {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}

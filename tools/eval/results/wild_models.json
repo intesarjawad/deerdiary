@@ -1,0 +1,37 @@
+{
+  "model_manifest_sha256": "7db350cd1be6a472067eebac349ab03dce0fe439b379bc3e51588f2e9e3c076d",
+  "files": [
+    {
+      "id": "speciesnet-v403a-fp16",
+      "role": "classifier",
+      "bytes": 112296562,
+      "sha256": "b5d078a96095ff9f59ce4abbdcd4dbec2aae80f0762ef644f5f4ecaacbb7dd34"
+    },
+    {
+      "id": "speciesnet-v403a-classifier_labels",
+      "role": "classifier_labels",
+      "bytes": 255693,
+      "sha256": "e0c41415d9b29dfd6d2e2494205d1197d28595cc6f69cb129495f9827155547e"
+    },
+    {
+      "id": "speciesnet-v403a-taxonomy",
+      "role": "taxonomy",
+      "bytes": 357417,
+      "sha256": "4bd5d1a85a63857f557d487c5d86c0911173c59b34977ebc0ee909484ce277f2"
+    },
+    {
+      "id": "speciesnet-v403a-geofence",
+      "role": "geofence",
+      "bytes": 6264811,
+      "sha256": "27a88e932e411f73a4937c935fe36cf61a9060a1c488f4c69ade3f19eb8507d1"
+    },
+    {
+      "id": "mdv6-apa-rtdetr-c-fp32",
+      "role": "detector",
+      "bytes": 80252664,
+      "sha256": "903b6c07f4d669214fedf18926b40bf8ba5386cadbd3a922fb3f1700e37743ab"
+    }
+  ],
+  "selection": "defaultPhotoModelFiles(manifest, true); production fp32 detector and fp16 classifier",
+  "new_weight_download_bytes": 0
+}

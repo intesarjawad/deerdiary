@@ -1,0 +1,4161 @@
+{
+  "revision": "aebb5bf852238ee02dac0b82abeb36721ca5bff4",
+  "sourceHashes": {
+    "ensemble_prediction_combiner_test.py": "44132274fd74717a1c5323d9e52e96be30f7310a3e54ac41af78517f37183b06",
+    "taxonomy_utils_test.py": "db6b9e47013f0282e6f69a2b46b571d350587373a7e72cf7f29a6134248d870a",
+    "ensemble_test.py": "5f0a861b83879b0da400c5e88693c7c8eb0789ff38937b96b84343e9b69ae8e9",
+    "geofence_utils_test.py": "e6e7193416a21116bd689b80e86218ad4caf6a5a54562776319ae2fe7d461702",
+    "constants.py": "9b9bb3de72260ca5bc26542b8b6821c97d674d6dc08f60309e80accd0816fb61",
+    "ensemble.py": "bdbb32bf32d470866a3f0764399b46ecfe1976e8b986dc332823f77705496870",
+    "geofence_utils.py": "5eb5a19eb20749db35f47df1dcc0871815d6e13a4219eb602bbb0e880bbc2b77",
+    "ensemble_prediction_combiner.py": "7032aab4c46c02ddee61e4a75c4bc62ebc20391fdeea773cd9f56009c063114e",
+    "taxonomy_utils.py": "ddb7618032f9db1d0decb2a52a05216ebd7f25bad1b1f7b7a86107dffdb1f441"
+  },
+  "contexts": [
+    {
+      "taxonomy_map": {
+        ";;;;": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "mammalia;primates;hominidae;homo;sapiens": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "mammalia;carnivora;felidae;panthera;leo": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "mammalia;carnivora;felidae;panthera;": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "mammalia;carnivora;felidae;;": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "mammalia;carnivora;;;": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "mammalia;;;;": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "mammalia;carnivora;ursidae;ursus;arctos": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "mammalia;carnivora;ursidae;ursus;maritimus": "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+        "mammalia;carnivora;ursidae;ailuropoda;melanoleuca": "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+        "mammalia;carnivora;ursidae;ursus;": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "mammalia;carnivora;ursidae;;": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family"
+      }
+    },
+    {},
+    {
+      "taxonomy_map": {
+        ";;;;": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "mammalia;primates;hominidae;homo;sapiens": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "mammalia;carnivora;felidae;panthera;leo": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "mammalia;carnivora;felidae;panthera;": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "mammalia;carnivora;felidae;;": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "mammalia;carnivora;;;": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "mammalia;;;;": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "mammalia;carnivora;ursidae;ursus;arctos": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "mammalia;carnivora;ursidae;ursus;maritimus": "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+        "mammalia;carnivora;ursidae;ailuropoda;melanoleuca": "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+        "mammalia;carnivora;ursidae;ursus;": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "mammalia;carnivora;ursidae;;": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family"
+      },
+      "geofence_map": {
+        "mammalia;carnivora;felidae;panthera;leo": {
+          "allow": {
+            "KEN": [],
+            "TZA": []
+          }
+        },
+        "mammalia;carnivora;felidae;panthera;": {
+          "allow": {
+            "KEN": [],
+            "TZA": [],
+            "USA": [
+              "AK",
+              "CA"
+            ]
+          }
+        },
+        "mammalia;carnivora;felidae;;": {
+          "allow": {
+            "FRA": [],
+            "KEN": [],
+            "TZA": [],
+            "USA": []
+          },
+          "block": {
+            "FRA": [],
+            "USA": [
+              "NY"
+            ]
+          }
+        },
+        "mammalia;carnivora;felidae;felis;margarita": {
+          "block": {
+            "AUS": []
+          }
+        },
+        "mammalia;carnivora;ursidae;;": {
+          "block": {
+            "GBR": []
+          }
+        }
+      }
+    },
+    {
+      "geofence_map": {
+        "mammalia;carnivora;felidae;panthera;leo": {
+          "allow": {
+            "KEN": [],
+            "TZA": []
+          }
+        },
+        "mammalia;carnivora;felidae;panthera;": {
+          "allow": {
+            "KEN": [],
+            "TZA": [],
+            "USA": [
+              "AK",
+              "CA"
+            ]
+          }
+        },
+        "mammalia;carnivora;felidae;;": {
+          "allow": {
+            "FRA": [],
+            "KEN": [],
+            "TZA": [],
+            "USA": []
+          },
+          "block": {
+            "FRA": [],
+            "USA": [
+              "NY"
+            ]
+          }
+        },
+        "mammalia;carnivora;felidae;felis;margarita": {
+          "block": {
+            "AUS": []
+          }
+        },
+        "mammalia;carnivora;ursidae;;": {
+          "block": {
+            "GBR": []
+          }
+        }
+      }
+    },
+    {
+      "geofence_map": {}
+    }
+  ],
+  "cases": [
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "species"
+      },
+      "expected": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "genus"
+      },
+      "expected": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "family"
+      },
+      "expected": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "order"
+      },
+      "expected": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "genus"
+      },
+      "expected": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "family"
+      },
+      "expected": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "order"
+      },
+      "expected": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "family"
+      },
+      "expected": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "order"
+      },
+      "expected": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "order"
+      },
+      "expected": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "class"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "class"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "species"
+      },
+      "expected": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "class"
+      },
+      "expected": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "class"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "species"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "genus"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "family"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "order"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "class"
+      },
+      "expected": null
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name",
+        "taxonomy_level": "kingdom"
+      },
+      "expected": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species",
+        "taxonomy_level": "kingdom"
+      },
+      "error": true
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_ancestor_at_level",
+      "function": "get_ancestor_at_level",
+      "context": 0,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name;extra",
+        "taxonomy_level": "kingdom"
+      },
+      "error": true
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+      },
+      "expected": ";;;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+      },
+      "expected": "mammalia;primates;hominidae;homo;sapiens"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle"
+      },
+      "expected": ";;;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+      },
+      "expected": "mammalia;carnivora;felidae;panthera;leo"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species"
+      },
+      "expected": "mammalia;carnivora;felidae;panthera;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+      },
+      "expected": "mammalia;carnivora;felidae;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal"
+      },
+      "expected": "mammalia;carnivora;;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal"
+      },
+      "expected": "mammalia;;;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+      },
+      "expected": ";;;;"
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "uuid;class;order;family;genus;species"
+      },
+      "error": true
+    },
+    {
+      "test": "taxonomy_utils_test.py::test_get_full_class_string",
+      "function": "get_full_class_string",
+      "context": 1,
+      "input": {
+        "label": "uuid;class;order;family;genus;species;common_name;extra"
+      },
+      "error": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "TZA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "geofence_animal_classification",
+      "context": 2,
+      "input": {
+        "labels": [
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+        ],
+        "scores": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "country": "TZA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": [
+        "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        0.4,
+        "classifier"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+        ],
+        "scores": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "country": "USA",
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "family",
+          "order",
+          "class",
+          "kingdom"
+        ],
+        "non_blank_threshold": 0.3999999999,
+        "enable_geofence": true
+      },
+      "expected": [
+        "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        0.5,
+        "classifier+rollup_to_family"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "geofence_animal_classification",
+      "context": 2,
+      "input": {
+        "labels": [
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+        ],
+        "scores": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": [
+        "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        0.5,
+        "classifier+geofence+rollup_to_family"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+        ],
+        "scores": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "country": "USA",
+        "admin1_region": "NY",
+        "target_taxonomy_levels": [
+          "family",
+          "order",
+          "class",
+          "kingdom"
+        ],
+        "non_blank_threshold": 0.3999999999,
+        "enable_geofence": true
+      },
+      "expected": [
+        "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        0.7999999999999999,
+        "classifier+rollup_to_order"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_geofence_animal_classification",
+      "function": "geofence_animal_classification",
+      "context": 2,
+      "input": {
+        "labels": [
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family"
+        ],
+        "scores": [
+          0.4,
+          0.3,
+          0.2,
+          0.1
+        ],
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": [
+        "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        0.7999999999999999,
+        "classifier+geofence+rollup_to_order"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.8,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species"
+        ],
+        "non_blank_threshold": 0.9,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.9,
+          0.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species"
+        ],
+        "non_blank_threshold": 0.9,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species"
+        ],
+        "non_blank_threshold": 0.9,
+        "enable_geofence": true
+      },
+      "expected": [
+        "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        1.0,
+        "classifier+rollup_to_species"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.6,
+          0.2,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "genus"
+        ],
+        "non_blank_threshold": 0.9,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.7,
+          0.25,
+          0.01,
+          0.01,
+          0.01,
+          0.01,
+          0.01
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "genus"
+        ],
+        "non_blank_threshold": 0.9,
+        "enable_geofence": true
+      },
+      "expected": [
+        "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        0.95,
+        "classifier+rollup_to_genus"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.4,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "family"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.4,
+          0.21,
+          0.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "family"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": [
+        "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        0.81,
+        "classifier+rollup_to_family"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.3,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "order"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.3,
+          0.2,
+          0.1,
+          0.1,
+          0.23,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "order"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": [
+        "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        0.83,
+        "classifier+rollup_to_order"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "class"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.22,
+          0.1,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "class"
+        ],
+        "non_blank_threshold": 0.8,
+        "enable_geofence": true
+      },
+      "expected": [
+        "f2d233e3-80e3-433d-9687-e29ecc7a467a;mammalia;;;;;mammal",
+        0.82,
+        "classifier+rollup_to_class"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "kingdom"
+        ],
+        "non_blank_threshold": 0.81,
+        "enable_geofence": true
+      },
+      "expected": null
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.23,
+          0.1,
+          0.1
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "kingdom"
+        ],
+        "non_blank_threshold": 0.81,
+        "enable_geofence": true
+      },
+      "expected": [
+        "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+        0.9299999999999999,
+        "classifier+rollup_to_kingdom"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "genus",
+          "family",
+          "order",
+          "class",
+          "kingdom"
+        ],
+        "non_blank_threshold": 0.75,
+        "enable_geofence": true
+      },
+      "expected": [
+        "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        0.7999999999999999,
+        "classifier+rollup_to_family"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.2,
+          0.3,
+          0.15,
+          0.0,
+          0.35,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species"
+        ],
+        "non_blank_threshold": 0.1,
+        "enable_geofence": true
+      },
+      "expected": [
+        "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        0.35,
+        "classifier+rollup_to_species"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.1,
+          0.2,
+          0.2,
+          0.45,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species",
+          "genus",
+          "family",
+          "order",
+          "class"
+        ],
+        "non_blank_threshold": 0.4,
+        "enable_geofence": true
+      },
+      "expected": [
+        "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        0.5,
+        "classifier+rollup_to_family"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "5a0f5e3f-c634-4b86-910a-b105cb526a24;mammalia;carnivora;ursidae;ursus;;ursus species",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ec1a70f4-41c0-4aba-9150-292fb2b7a324;mammalia;carnivora;ursidae;;;bear family",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.1,
+          0.2,
+          0.2,
+          0.45,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "country": "GBR",
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "species",
+          "genus",
+          "family",
+          "order",
+          "class"
+        ],
+        "non_blank_threshold": 0.4,
+        "enable_geofence": true
+      },
+      "expected": [
+        "eeeb5d26-2a47-4d01-a3de-10b33ec0aee4;mammalia;carnivora;;;;carnivorous mammal",
+        0.5,
+        "classifier+rollup_to_order"
+      ]
+    },
+    {
+      "test": "geofence_utils_test.py::test_roll_up_labels_to_first_matching_level",
+      "function": "roll_up_labels_to_first_matching_level",
+      "context": 2,
+      "input": {
+        "labels": [
+          "330bb1e9-84d6-4e41-afa9-938aee17ea29;mammalia;carnivora;ursidae;ursus;arctos;brown bear",
+          "e7f83bf6-df2c-4ce0-97fc-2f233df23ec4;mammalia;carnivora;ursidae;ursus;maritimus;polar bear",
+          "85662682-67c1-4ecb-ba05-ba12e2df6b65;mammalia;carnivora;ursidae;ailuropoda;melanoleuca;giant panda",
+          "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+          "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal"
+        ],
+        "scores": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "country": null,
+        "admin1_region": null,
+        "target_taxonomy_levels": [
+          "invalid_level"
+        ],
+        "non_blank_threshold": 0.3,
+        "enable_geofence": true
+      },
+      "error": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "9c564562-9429-405c-8529-04cff7752282;mammalia;carnivora;felidae;puma;concolor;puma",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "9c564562-9429-405c-8529-04cff7752282;mammalia;carnivora;felidae;puma;concolor;puma",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "KEN",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "FRA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "TZA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e588253d-d61d-4149-a96c-8c245927a80f;mammalia;carnivora;felidae;felis;margarita;sand cat",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e588253d-d61d-4149-a96c-8c245927a80f;mammalia;carnivora;felidae;felis;margarita;sand cat",
+        "country": "AUS",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": true
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "9c564562-9429-405c-8529-04cff7752282;mammalia;carnivora;felidae;puma;concolor;puma",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "9c564562-9429-405c-8529-04cff7752282;mammalia;carnivora;felidae;puma;concolor;puma",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion",
+        "country": "KEN",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "fbb23d07-6677-43db-b650-f99ac452c50f;mammalia;carnivora;felidae;panthera;;panthera species",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "FRA",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "TZA",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": "CA",
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "df8514b0-10a5-411f-8ed6-0f415e8153a3;mammalia;carnivora;felidae;;;cat family",
+        "country": "USA",
+        "admin1_region": "NY",
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e588253d-d61d-4149-a96c-8c245927a80f;mammalia;carnivora;felidae;felis;margarita;sand cat",
+        "country": "GBR",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "geofence_utils_test.py::test_should_geofence_animal_classification_disabled",
+      "function": "should_geofence_animal_classification",
+      "context": 3,
+      "input": {
+        "label": "e588253d-d61d-4149-a96c-8c245927a80f;mammalia;carnivora;felidae;felis;margarita;sand cat",
+        "country": "AUS",
+        "admin1_region": null,
+        "enable_geofence": false
+      },
+      "expected": false
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_empty_inputs",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [],
+        "detections": [],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "expected": []
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_all_items",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+            ],
+            "scores": [
+              0.7
+            ]
+          },
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.9
+            ]
+          },
+          {
+            "classes": [
+              "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle"
+            ],
+            "scores": [
+              0.8
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.95,
+            "bbox": [
+              0.1,
+              0.1,
+              0.2,
+              0.2
+            ]
+          },
+          {
+            "label": "animal",
+            "conf": 0.9,
+            "bbox": [
+              0.5,
+              0.5,
+              0.6,
+              0.6
+            ]
+          },
+          {
+            "label": "vehicle",
+            "conf": 0.85,
+            "bbox": [
+              0.8,
+              0.8,
+              0.9,
+              0.9
+            ]
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.95,
+          "source": "detector"
+        },
+        {
+          "class": "geofenced_label",
+          "score": 0.9,
+          "source": "geofence_source"
+        },
+        {
+          "class": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+          "score": 0.85,
+          "source": "detector"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_animal_classifications",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.9
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.1
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "geofenced_label",
+          "score": 0.9,
+          "source": "geofence_source"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_animal_classifications",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "geofenced_label",
+          "score": 0.9,
+          "source": "geofence_source"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_animal_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.1
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.6
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "expected": [
+        {
+          "class": "1f689929-883d-4dae-958c-3d57ab5b6c16;;;;;;animal",
+          "score": 0.6,
+          "source": "detector"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_animal_rollups",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.6
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.1
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "rollup_label",
+          "score": 0.8,
+          "source": "rollup_source"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_blank_classifications",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.1
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "score": 0.7,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_blank_classifications",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+            ],
+            "scores": [
+              0.995
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "score": 0.995,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_human_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.1
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.8
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.8,
+          "source": "detector"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_human_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.7,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_human_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.7,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_unknown",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.1
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "animal",
+            "conf": 0.1
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "expected": [
+        {
+          "class": "f2efdae9-efb8-48fb-8a91-eccf79ab4ffb;no cv result;no cv result;no cv result;no cv result;no cv result;no cv result",
+          "score": 0.1,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_vehicle_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "vehicle",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.7,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_vehicle_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "ddf59264-185a-4d35-b647-2785792bdf54;mammalia;carnivora;felidae;panthera;leo;lion"
+            ],
+            "scores": [
+              0.1
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "vehicle",
+            "conf": 0.8
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+          "score": 0.8,
+          "source": "detector"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_for_single_item_vehicle_detections",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle"
+            ],
+            "scores": [
+              0.5
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "vehicle",
+            "conf": 0.3
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn"
+      },
+      "expected": [
+        {
+          "class": "e2895ed5-780b-48f6-8a11-9e27cb594511;;;;;;vehicle",
+          "score": 0.5,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_mismatched_classification_count",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+            ],
+            "scores": [
+              0.7
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.95,
+            "bbox": [
+              0.1,
+              0.1,
+              0.2,
+              0.2
+            ]
+          },
+          {
+            "label": "animal",
+            "conf": 0.6,
+            "bbox": [
+              0.5,
+              0.5,
+              0.6,
+              0.6
+            ]
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "error": true
+    },
+    {
+      "test": "ensemble_prediction_combiner_test.py::test_combine_predictions_preserves_input_order",
+      "function": "combine_predictions",
+      "context": 2,
+      "input": {
+        "classifications_list": [
+          {
+            "classes": [
+              "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+            ],
+            "scores": [
+              0.6
+            ]
+          },
+          {
+            "classes": [
+              "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+            ],
+            "scores": [
+              0.995
+            ]
+          }
+        ],
+        "detections": [
+          {
+            "label": "human",
+            "conf": 0.75,
+            "bbox": [
+              0.1,
+              0.1,
+              0.2,
+              0.2
+            ]
+          },
+          {
+            "label": "animal",
+            "conf": 0.05,
+            "bbox": [
+              0.5,
+              0.5,
+              0.1,
+              0.1
+            ]
+          }
+        ],
+        "country": null,
+        "admin1_region": null,
+        "enable_geofence": true,
+        "geofence_fn": "mock_geofence_fn",
+        "roll_up_fn": "mock_roll_up_fn_return_none"
+      },
+      "expected": [
+        {
+          "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+          "score": 0.75,
+          "source": "detector"
+        },
+        {
+          "class": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+          "score": 0.995,
+          "source": "classifier"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_test.py::test_combine",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "a.jpg",
+          "b.jpg",
+          "c.jpg",
+          "d.jpg",
+          "e.jpg",
+          "f.jpg",
+          "g.jpg"
+        ],
+        "classifier_results": {
+          "b.jpg": {
+            "filepath": "b.jpg",
+            "failures": [
+              "CLASSIFIER"
+            ]
+          },
+          "c.jpg": {
+            "filepath": "c.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.5,
+                "bbox": [
+                  0.0,
+                  0.1,
+                  0.2,
+                  0.3
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "X",
+                    "Y",
+                    "Z"
+                  ],
+                  "scores": [
+                    0.5,
+                    0.3,
+                    0.2
+                  ]
+                }
+              }
+            ]
+          },
+          "d.jpg": {
+            "filepath": "d.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.7,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "R",
+                    "S",
+                    "T"
+                  ],
+                  "scores": [
+                    0.7,
+                    0.2,
+                    0.1
+                  ]
+                }
+              }
+            ]
+          },
+          "e.jpg": {
+            "filepath": "e.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.7,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "K",
+                    "L",
+                    "M"
+                  ],
+                  "scores": [
+                    0.9,
+                    0.1,
+                    0.0
+                  ],
+                  "target_classes": [
+                    "T1"
+                  ],
+                  "target_logits": [
+                    1.5
+                  ]
+                }
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.05,
+                "bbox": [
+                  0.5,
+                  0.5,
+                  0.1,
+                  0.1
+                ]
+              }
+            ]
+          },
+          "g.jpg": {
+            "filepath": "g.jpg",
+            "detections": [
+              {
+                "category": "0",
+                "label": "whole_image_classification",
+                "conf": 1.0,
+                "bbox": [
+                  0.0,
+                  0.0,
+                  1.0,
+                  1.0
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "W",
+                    "V",
+                    "U"
+                  ],
+                  "scores": [
+                    0.6,
+                    0.3,
+                    0.1
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "failures": [
+              "DETECTOR"
+            ]
+          },
+          "b.jpg": {
+            "filepath": "b.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.5,
+                "bbox": [
+                  0.0,
+                  0.1,
+                  0.2,
+                  0.3
+                ]
+              }
+            ]
+          },
+          "d.jpg": {
+            "filepath": "d.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.7,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              }
+            ]
+          },
+          "e.jpg": {
+            "filepath": "e.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.7,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.05,
+                "bbox": [
+                  0.5,
+                  0.5,
+                  0.1,
+                  0.1
+                ]
+              }
+            ]
+          },
+          "f.jpg": {
+            "filepath": "f.jpg",
+            "detections": []
+          },
+          "g.jpg": {
+            "filepath": "g.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.7,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.5,
+                "bbox": [
+                  0.0,
+                  0.1,
+                  0.2,
+                  0.3
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "a.jpg": {
+            "country": "COUNTRY_A"
+          },
+          "b.jpg": {
+            "country": "COUNTRY_B"
+          },
+          "c.jpg": {
+            "country": "COUNTRY_C"
+          },
+          "e.jpg": {
+            "country": "COUNTRY_E"
+          },
+          "f.jpg": {
+            "country": "COUNTRY_F"
+          },
+          "g.jpg": {
+            "country": "COUNTRY_G"
+          }
+        },
+        "partial_predictions": {
+          "f.jpg": {
+            "filepath": "f.jpg",
+            "detections": [],
+            "model_version": "test-version"
+          }
+        },
+        "max_classifications_per_detection": 2
+      },
+      "mock": true,
+      "expected": [
+        {
+          "filepath": "a.jpg",
+          "failures": [
+            "CLASSIFIER",
+            "DETECTOR"
+          ],
+          "country": "COUNTRY_A",
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "b.jpg",
+          "failures": [
+            "CLASSIFIER"
+          ],
+          "country": "COUNTRY_B",
+          "detections": [
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.5,
+              "bbox": [
+                0.0,
+                0.1,
+                0.2,
+                0.3
+              ]
+            }
+          ],
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "c.jpg",
+          "failures": [
+            "DETECTOR"
+          ],
+          "country": "COUNTRY_C",
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "d.jpg",
+          "failures": [
+            "GEOLOCATION"
+          ],
+          "detections": [
+            {
+              "category": "2",
+              "label": "human",
+              "conf": 0.7,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "R",
+                  "S"
+                ],
+                "scores": [
+                  0.7,
+                  0.2
+                ]
+              },
+              "processed_classification": {
+                "class": "R",
+                "score": 0.7,
+                "source": "mock:human:0.7"
+              }
+            }
+          ],
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "e.jpg",
+          "country": "COUNTRY_E",
+          "detections": [
+            {
+              "category": "2",
+              "label": "human",
+              "conf": 0.7,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "K",
+                  "L"
+                ],
+                "scores": [
+                  0.9,
+                  0.1
+                ],
+                "target_classes": [
+                  "T1"
+                ],
+                "target_logits": [
+                  1.5
+                ]
+              },
+              "processed_classification": {
+                "class": "K",
+                "score": 0.9,
+                "source": "mock:human:0.7"
+              }
+            },
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.05,
+              "bbox": [
+                0.5,
+                0.5,
+                0.1,
+                0.1
+              ]
+            }
+          ],
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "f.jpg",
+          "detections": [],
+          "model_version": "test-version"
+        },
+        {
+          "filepath": "g.jpg",
+          "country": "COUNTRY_G",
+          "detections": [
+            {
+              "category": "0",
+              "label": "whole_image_classification",
+              "conf": 1.0,
+              "bbox": [
+                0.0,
+                0.0,
+                1.0,
+                1.0
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "W",
+                  "V"
+                ],
+                "scores": [
+                  0.6,
+                  0.3
+                ]
+              },
+              "processed_classification": {
+                "class": "W",
+                "score": 0.6,
+                "source": "mock:human:0.7"
+              }
+            },
+            {
+              "category": "2",
+              "label": "human",
+              "conf": 0.7,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ]
+            },
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.5,
+              "bbox": [
+                0.0,
+                0.1,
+                0.2,
+                0.3
+              ]
+            }
+          ],
+          "model_version": "test-version"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_test.py::test_combine_max_classifications_per_detection",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "a.jpg"
+        ],
+        "classifier_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "scores": [
+                    0.6,
+                    0.3,
+                    0.1
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "a.jpg": {
+            "country": "USA"
+          }
+        },
+        "partial_predictions": null,
+        "max_classifications_per_detection": 1
+      },
+      "mock": true,
+      "expected": [
+        {
+          "filepath": "a.jpg",
+          "country": "USA",
+          "detections": [
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.9,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "A"
+                ],
+                "scores": [
+                  0.6
+                ]
+              },
+              "processed_classification": {
+                "class": "A",
+                "score": 0.6,
+                "source": "mock:animal:0.9"
+              }
+            }
+          ],
+          "model_version": "test-version"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_test.py::test_combine_max_classifications_per_detection",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "a.jpg"
+        ],
+        "classifier_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "scores": [
+                    0.6,
+                    0.3,
+                    0.1
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "a.jpg": {
+            "country": "USA"
+          }
+        },
+        "partial_predictions": null,
+        "max_classifications_per_detection": 2
+      },
+      "mock": true,
+      "expected": [
+        {
+          "filepath": "a.jpg",
+          "country": "USA",
+          "detections": [
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.9,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "A",
+                  "B"
+                ],
+                "scores": [
+                  0.6,
+                  0.3
+                ]
+              },
+              "processed_classification": {
+                "class": "A",
+                "score": 0.6,
+                "source": "mock:animal:0.9"
+              }
+            }
+          ],
+          "model_version": "test-version"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_test.py::test_combine_max_classifications_per_detection",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "a.jpg"
+        ],
+        "classifier_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "scores": [
+                    0.6,
+                    0.3,
+                    0.1
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "a.jpg": {
+            "country": "USA"
+          }
+        },
+        "partial_predictions": null,
+        "max_classifications_per_detection": null
+      },
+      "mock": true,
+      "expected": [
+        {
+          "filepath": "a.jpg",
+          "country": "USA",
+          "detections": [
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.9,
+              "bbox": [
+                0.1,
+                0.2,
+                0.3,
+                0.4
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "scores": [
+                  0.6,
+                  0.3,
+                  0.1
+                ]
+              },
+              "processed_classification": {
+                "class": "A",
+                "score": 0.6,
+                "source": "mock:animal:0.9"
+              }
+            }
+          ],
+          "model_version": "test-version"
+        }
+      ]
+    },
+    {
+      "test": "ensemble_test.py::test_combine_mismatched_detections",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "a.jpg"
+        ],
+        "classifier_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "A"
+                  ],
+                  "scores": [
+                    0.6
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "a.jpg": {
+            "filepath": "a.jpg",
+            "detections": [
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.5,
+                  0.6,
+                  0.1,
+                  0.1
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "a.jpg": {
+            "country": "USA"
+          }
+        },
+        "partial_predictions": null,
+        "max_classifications_per_detection": 2
+      },
+      "mock": true,
+      "error": true
+    },
+    {
+      "test": "ensemble_test.py::test_combine_multiple_crops",
+      "function": "should_geofence_animal_classification",
+      "context": 4,
+      "input": {
+        "label": "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+        "country": "USA",
+        "admin1_region": null,
+        "enable_geofence": true
+      },
+      "expected": false
+    },
+    {
+      "test": "ensemble_test.py::test_combine_multiple_crops",
+      "function": "combine_images",
+      "context": 0,
+      "input": {
+        "filepaths": [
+          "test_data/human_and_dog.jpg"
+        ],
+        "classifier_results": {
+          "test_data/human_and_dog.jpg": {
+            "filepath": "test_data/human_and_dog.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.94,
+                "bbox": [
+                  0.6964,
+                  0.3965,
+                  0.0771,
+                  0.2521
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+                    "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+                    "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+                  ],
+                  "scores": [
+                    0.99,
+                    0.005,
+                    0.005
+                  ]
+                }
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.5229,
+                  0.5646,
+                  0.1307,
+                  0.0965
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+                    "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+                    "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+                  ],
+                  "scores": [
+                    0.95,
+                    0.04,
+                    0.01
+                  ]
+                }
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.12,
+                "bbox": [
+                  0.1,
+                  0.1,
+                  0.05,
+                  0.05
+                ],
+                "raw_classifications": {
+                  "classes": [
+                    "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+                    "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+                    "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human"
+                  ],
+                  "scores": [
+                    0.999,
+                    0.0005,
+                    0.0005
+                  ]
+                }
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.02,
+                "bbox": [
+                  0.2,
+                  0.2,
+                  0.05,
+                  0.05
+                ]
+              }
+            ]
+          }
+        },
+        "detector_results": {
+          "test_data/human_and_dog.jpg": {
+            "filepath": "test_data/human_and_dog.jpg",
+            "detections": [
+              {
+                "category": "2",
+                "label": "human",
+                "conf": 0.94,
+                "bbox": [
+                  0.6964,
+                  0.3965,
+                  0.0771,
+                  0.2521
+                ]
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.9,
+                "bbox": [
+                  0.5229,
+                  0.5646,
+                  0.1307,
+                  0.0965
+                ]
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.12,
+                "bbox": [
+                  0.1,
+                  0.1,
+                  0.05,
+                  0.05
+                ]
+              },
+              {
+                "category": "1",
+                "label": "animal",
+                "conf": 0.02,
+                "bbox": [
+                  0.2,
+                  0.2,
+                  0.05,
+                  0.05
+                ]
+              }
+            ]
+          }
+        },
+        "geolocation_results": {
+          "test_data/human_and_dog.jpg": {
+            "country": "USA"
+          }
+        },
+        "partial_predictions": null,
+        "max_classifications_per_detection": 2
+      },
+      "mock": false,
+      "expected": [
+        {
+          "filepath": "test_data/human_and_dog.jpg",
+          "country": "USA",
+          "detections": [
+            {
+              "category": "2",
+              "label": "human",
+              "conf": 0.94,
+              "bbox": [
+                0.6964,
+                0.3965,
+                0.0771,
+                0.2521
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+                  "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+                ],
+                "scores": [
+                  0.99,
+                  0.005
+                ]
+              },
+              "processed_classification": {
+                "class": "990ae9dd-7a59-4344-afcb-1b7b21368000;mammalia;primates;hominidae;homo;sapiens;human",
+                "score": 0.94,
+                "source": "detector"
+              }
+            },
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.9,
+              "bbox": [
+                0.5229,
+                0.5646,
+                0.1307,
+                0.0965
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+                  "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank"
+                ],
+                "scores": [
+                  0.95,
+                  0.04
+                ]
+              },
+              "processed_classification": {
+                "class": "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog",
+                "score": 0.95,
+                "source": "classifier"
+              }
+            },
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.12,
+              "bbox": [
+                0.1,
+                0.1,
+                0.05,
+                0.05
+              ],
+              "raw_classifications": {
+                "classes": [
+                  "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+                  "3d80f1d6-b1df-4966-9ff4-94053c7a902a;mammalia;carnivora;canidae;canis;familiaris;domestic dog"
+                ],
+                "scores": [
+                  0.999,
+                  0.0005
+                ]
+              },
+              "processed_classification": {
+                "class": "f1856211-cfb7-4a5b-9158-c0f72fd09ee6;;;;;;blank",
+                "score": 0.999,
+                "source": "classifier"
+              }
+            },
+            {
+              "category": "1",
+              "label": "animal",
+              "conf": 0.02,
+              "bbox": [
+                0.2,
+                0.2,
+                0.05,
+                0.05
+              ]
+            }
+          ],
+          "model_version": "test-version"
+        }
+      ]
+    }
+  ]
+}

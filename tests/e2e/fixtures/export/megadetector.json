@@ -1,0 +1,34 @@
+{
+  "info": {
+    "format_version": "1.6",
+    "detector": "MegaDetector v5a.0.1",
+    "detection_completion_time": "2026-11-01T02:03:04Z"
+  },
+  "detection_categories": {
+    "1": "animal",
+    "2": "person",
+    "3": "vehicle"
+  },
+  "classification_categories": {
+    "1": "white-tailed deer",
+    "2": "red fox"
+  },
+  "images": [
+    {
+      "file": "card/DCIM/100MEDIA/a.jpg",
+      "detections": [
+        {
+          "category": "1",
+          "conf": 0.9,
+          "bbox": [0.1, 0.2, 0.3, 0.4],
+          "classifications": [["1", 0.88], ["2", 0.12]]
+        }
+      ]
+    },
+    {
+      "file": "card/DCIM/100MEDIA/broken.jpg",
+      "failure": "DECODE_FAILED",
+      "detections": null
+    }
+  ]
+}

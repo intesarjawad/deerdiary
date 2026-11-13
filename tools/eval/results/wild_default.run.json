@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-11-12T08:05:31.315Z",
+  "machine": "Apple M5, arm64, 32 GB",
+  "chromeVersion": "157.0.8103.50",
+  "ortVersion": "1.31.1",
+  "mode": "default",
+  "country": "USA",
+  "photos": {
+    "distinct": 2000,
+    "fed": 2000,
+    "medianMegapixels": 3.145728,
+    "upscaled": false
+  },
+  "backends": [
+    {
+      "backend": "webgpu",
+      "actualBackend": "webgpu",
+      "photos": 2000,
+      "failedPhotos": 0,
+      "photosPerSecond": 1.6366735370194936,
+      "firstCardMs": 1084,
+      "stageMs": {
+        "decode": 21.375,
+        "preprocess": 96.83499997854233,
+        "detect": 102.05500000715256,
+        "classify": 257.789999961853,
+        "ensemble": 0.05500000715255737,
+        "thumbnail": 80.74500000476837,
+        "total": 552.5600000023842
+      },
+      "peakTreeRssBytes": 2245459968,
+      "rssSlopeBytesPerPhoto": null
+    }
+  ]
+}

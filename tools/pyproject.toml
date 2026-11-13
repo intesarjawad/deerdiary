@@ -1,0 +1,42 @@
+[project]
+name = "deerdiary"
+description = "A diary of the animals on a trail camera. Browse the sample; your own photos need local setup."
+version = "0.0.0"
+requires-python = "==3.12.*"
+dependencies = [
+  "torch==2.15.0",
+  "torchvision==0.29.2",
+  "kagglehub==1.0.3",
+  "huggingface_hub==2.4.0",
+  "frictionless==5.21.0",
+  "pycountry==26.2.16",
+]
+
+[dependency-groups]
+dev = ["pytest==9.2.0", "ruff==0.17.3", "pyright==1.1.414", "onnxruntime==1.31.1"]
+reference = [
+  "speciesnet==5.0.6",
+  "PytorchWildlife==1.3.1",
+]
+onnx = [
+  "onnx==1.23.2",
+  "onnxruntime==1.31.1",
+  "onnxconverter-common==1.16.0",
+  "onnxslim==0.1.99",
+]
+
+[tool.uv]
+conflicts = [[{ group = "reference" }, { group = "onnx" }]]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "UP", "SIM", "N", "RUF", "PL", "PT"]
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["PLR2004"]  # literal expected values are the point of a test
+[tool.pyright]
+typeCheckingMode = "strict"
+pythonVersion = "3.12"
+include = ["export", "golden", "eval", "sample", "local", "data", "bench", "tests"]
+stubPath = "typings"

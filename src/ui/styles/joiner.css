@@ -1,0 +1,614 @@
+/* The joiner: one empty frame from the camera, in the dark, and the year's visits put back into it */
+.joiner {
+  position: relative;
+  grid-area: figure;
+  display: grid;
+  container-type: inline-size;
+  gap: var(--space-3);
+  align-content: start;
+  margin: 0;
+  min-inline-size: 0;
+}
+
+.joiner-stage {
+  position: relative;
+  aspect-ratio: 1600 / 1167;
+  overflow: hidden;
+  background: #000;
+  cursor: crosshair;
+  touch-action: pan-y;
+  container-type: inline-size;
+}
+
+/* The camera's maker strip is the camera's, not the place's; the year line runs over it in black */
+.joiner-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  block-size: 2.5%;
+  background: #000;
+}
+
+.joiner-stage .master,
+.joiner-stage canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* The frame starts in true black; only without WebGL does the still stand in, dim and grey */
+.joiner-stage .master {
+  opacity: 0;
+}
+
+.joiner-stage[data-gl="off"] .master {
+  opacity: 1;
+  filter: grayscale(1) brightness(0.3);
+}
+
+.joiner-stage canvas {
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+
+.joiner-stage[data-gl="on"] canvas {
+  opacity: 1;
+}
+
+/* The camera's own burnt-in strip, set again for the burst on screen */
+.osd {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  display: flex;
+  gap: 4%;
+  align-items: center;
+  block-size: 3%;
+  margin: 0;
+  padding-inline: 1.4%;
+  background: #000;
+  color: #f1f1ee;
+  font-family: var(--mono);
+  font-size: clamp(0.5rem, 1.2cqw, 0.875rem);
+  font-stretch: 112.5%;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.osd .ir {
+  margin-inline-start: auto;
+  color: #4a4642;
+  transition: color 120ms linear;
+}
+
+.joiner-stage[data-lit="true"] .osd .ir {
+  color: #ff5b45;
+  text-shadow: 0 0 6px rgb(255 70 50 / 0.8);
+}
+
+.windows {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*
+ * Each piece is a print laid on the frame at the camera's own scale, turned a little by hand. The
+ * canvas draws them; these are the hit areas, and the prints themselves when there is no WebGL.
+ */
+.joiner-stage .window,
+.joiner-stage .ground {
+  position: absolute;
+  min-block-size: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+  rotate: var(--turn);
+}
+
+.joiner-stage .window {
+  cursor: pointer;
+}
+
+.joiner-stage .window:hover:not(:disabled) {
+  background-color: transparent;
+}
+
+.joiner-stage .window:focus-visible {
+  outline: var(--focus) solid var(--tally);
+  outline-offset: 2px;
+}
+
+.joiner-stage[data-gl="on"] .ground {
+  display: none;
+}
+
+.joiner-stage:not([data-gl="on"]) .window,
+.joiner-stage:not([data-gl="on"]) .ground {
+  background-image: var(--photo);
+  background-size: calc(100% / var(--w)) calc(100% / var(--h));
+  background-position: calc(var(--x) / (1 - var(--w)) * 100%) calc(var(--y) / (1 - var(--h)) * 100%);
+}
+
+/* Once the prints are graded they are laid as cut, in the finished picture's one light */
+.joiner-stage[data-gl="off"] [style*="--print"] {
+  background-image: var(--print);
+  background-size: 100% 100%;
+  background-position: 0 0;
+  filter: grayscale(1) brightness(0.7);
+}
+
+/* As in the drawn joiner, only an animal's print has an edge, a thin warm one */
+.joiner-stage[data-gl="off"] .window[style*="--print"] {
+  box-shadow: 0 0 0 1px rgb(226 208 176);
+}
+
+.joiner-stage[data-day="true"]:not([data-gl="on"]) .window,
+.joiner-stage[data-day="true"]:not([data-gl="on"]) .ground,
+.joiner-stage[data-day="true"][data-gl="off"] .master {
+  filter: none;
+}
+
+/* A print's number is in the sheet; on the frame it shows only to the pointer or the keyboard */
+.window .tag {
+  position: absolute;
+  inset-block-end: 100%;
+  inset-inline-start: 0;
+  padding: 0 0.3em;
+  background: var(--ink);
+  color: var(--ground);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0;
+}
+
+.window:hover .tag,
+.window:focus-visible .tag {
+  opacity: 1;
+}
+
+/* The claim is the page's heading, one line over the frame */
+.masthead .joiner h1.claim {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
+  font-weight: 400;
+  font-variation-settings: "opsz" 60;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.masthead .joiner h1.claim strong {
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* The year line: one tick per burst at its date, dashed where the camera kept no animal */
+/* The year runs along the frame's own bottom strip, where the camera prints its maker's mark */
+.joiner-year {
+  --strip: calc(100cqw * 1167 / 1600 * 0.025);
+
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  margin-block-start: calc(-1 * (var(--space-3) + 1.375rem + var(--strip) / 2));
+}
+
+.track {
+  position: relative;
+  block-size: 2.75rem;
+  cursor: ew-resize;
+  touch-action: none;
+  container-type: inline-size;
+}
+
+.track::before {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto;
+  block-size: 1px;
+  background: var(--rule-strong);
+}
+
+.track:focus-visible {
+  outline: var(--focus) solid var(--tally);
+  outline-offset: 2px;
+}
+
+.track .lit {
+  position: absolute;
+  inset: calc(50% - 1px) auto auto 0;
+  inline-size: 100%;
+  block-size: 3px;
+  background: var(--ink);
+  transform: scaleX(var(--p));
+  transform-origin: left;
+  transition: transform 260ms var(--ease);
+}
+
+.track .tick {
+  position: absolute;
+  inset: 34% auto auto 0;
+  inline-size: 0;
+  block-size: 32%;
+  border-inline-start: 2px solid var(--ink-faint);
+  translate: calc(var(--p) * 100cqw - 1px) 0;
+}
+
+.track .tick[data-past="true"] {
+  border-color: var(--ink);
+}
+
+.track .tick[data-empty="true"] {
+  border-inline-start: 1px dashed var(--ink-soft);
+}
+
+.track .head {
+  position: absolute;
+  inset: 25% auto auto 0;
+  inline-size: 0.75rem;
+  block-size: 50%;
+  border: 2px solid var(--ink);
+  background: var(--ground);
+  /* Its share of the line less its own width, so at the year's end it stays inside the line */
+  translate: calc(var(--p) * (100cqw - 0.75rem)) 0;
+  transition: translate 260ms var(--ease);
+}
+
+.months {
+  position: relative;
+  grid-row: 2;
+  grid-column: 1;
+  block-size: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  container-type: inline-size;
+}
+
+.months li {
+  position: absolute;
+  inset: 0 auto auto 0;
+  /* Anchored by its share of the year, so the last month ends at the line's end, not past it */
+  translate: calc(var(--p) * (100cqw - 100%)) 0;
+  white-space: nowrap;
+}
+
+/* The track runs the frame's full width; the button sits under the months, at the year's end. */
+.joiner-year .replay {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: end;
+  align-self: start;
+  min-block-size: 2.75rem;
+  padding-inline: var(--space-1);
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-color: var(--rule-strong);
+  text-underline-offset: 0.3em;
+}
+
+.joiner-year .lamp-cue {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: center;
+  max-inline-size: calc(100% - 11rem);
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+
+.joiner-year .replay:hover:not(:disabled) {
+  background: transparent;
+  color: var(--tally);
+}
+
+.joiner-year .replay:disabled {
+  border-color: transparent;
+  background: transparent;
+  color: var(--ink-faint);
+  text-decoration: none;
+  cursor: default;
+}
+
+.joiner figcaption p {
+  max-inline-size: 60ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+/*
+ * The field sheet: a printed form filled in by hand as each burst is read. A label that stops above
+ * species keeps an empty rule where the binomial would go, and says how far it got.
+ */
+.sheet {
+  grid-area: sheet;
+  display: grid;
+  align-content: start;
+  margin: 0;
+  border-block-start: 2px solid var(--ink);
+}
+
+.sheet-head {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  border-block-end: 1px solid var(--rule-strong);
+}
+
+.sheet .sheet-head p {
+  display: grid;
+  margin: 0;
+  padding: var(--space-1) var(--space-2);
+  font-size: 1rem;
+  line-height: 1.3;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.sheet .sheet-head p:first-child {
+  padding-inline-start: 0;
+}
+
+.sheet .sheet-head p + p {
+  border-inline-start: 1px solid var(--rule);
+}
+
+.tallies dt {
+  color: var(--ink-soft);
+  font-size: 0.875rem;
+}
+
+.sheet .caption {
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entries button {
+  display: grid;
+  grid-template-columns: 3.75rem minmax(0, 1fr);
+  align-items: baseline;
+  inline-size: 100%;
+  min-block-size: 1.5rem;
+  padding: 0.0625rem 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 400;
+  text-align: start;
+}
+
+.entries button:hover:not(:disabled),
+.entries li[data-front="true"] button {
+  background: linear-gradient(90deg, var(--tally-wash), transparent 80%);
+  color: var(--ink);
+  box-shadow: inset 2px 0 0 var(--tally);
+}
+
+.entries button:focus-visible {
+  outline-offset: -2px;
+}
+
+.entries .d {
+  padding-inline-start: var(--space-1);
+  color: var(--ink-faint);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.entries .det {
+  min-inline-size: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.entries .det,
+.entries .d {
+  animation: write 560ms var(--ease) both;
+}
+
+@keyframes write {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.entries .waiting {
+  block-size: 1.5rem;
+  margin-inline-start: 3.75rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.entries .latin {
+  white-space: nowrap;
+  margin-inline-start: 0.35em;
+  color: var(--ink-soft);
+  font-size: 0.9375rem;
+}
+
+.entries .blank {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 0.4em;
+  align-items: baseline;
+  margin-inline-start: 0.4em;
+}
+
+.entries .blank .rule {
+  inline-size: 3.5rem;
+  border-block-end: 1px solid var(--ink-soft);
+}
+
+.entries .reach {
+  color: var(--ink-soft);
+  font-family: var(--mono);
+  font-size: 0.5625rem;
+}
+
+.tallies {
+  display: grid;
+  margin: var(--space-1) 0 0;
+}
+
+.tallies > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-block-size: 1.625rem;
+}
+
+.tallies > div[hidden] {
+  display: none;
+}
+
+.tallies dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Narrow: the claim, the frame and its year, then the sheet straight under the year line so each
+ * row is written in beside its flash, then the caption and the name.
+ */
+@media (max-width: 63.99rem) {
+  .masthead[data-hero="true"] {
+    grid-template-areas: none;
+    row-gap: var(--space-3);
+  }
+
+  .masthead[data-hero="true"] .joiner {
+    display: contents;
+  }
+
+  .masthead[data-hero="true"] > *,
+  .masthead[data-hero="true"] .joiner > * {
+    grid-area: auto;
+    min-inline-size: 0;
+  }
+
+  .masthead[data-hero="true"] .joiner-stage {
+    order: 1;
+  }
+
+  .masthead[data-hero="true"] .joiner-year {
+    --strip: calc(100vw * 1167 / 1600 * 0.025);
+
+    order: 2;
+  }
+
+  .masthead[data-hero="true"] .sheet {
+    order: 3;
+  }
+
+  .masthead[data-hero="true"] .joiner figcaption {
+    order: 4;
+    margin-block-start: var(--space-4);
+  }
+
+  .masthead[data-hero="true"] .title {
+    order: 5;
+  }
+
+  .masthead[data-hero="true"] .intake {
+    order: 6;
+  }
+
+  .masthead[data-hero="true"] .country {
+    order: 7;
+  }
+}
+
+@media (max-width: 40rem) {
+  .masthead[data-hero="true"] .intake {
+    order: 3;
+  }
+
+  .masthead[data-hero="true"] .sheet {
+    order: 4;
+  }
+
+  .masthead[data-hero="true"] .joiner figcaption {
+    order: 5;
+  }
+
+  .masthead[data-hero="true"] .title {
+    order: 6;
+  }
+
+  .masthead[data-hero="true"] .joiner-year {
+    --strip: calc(100vw * 0.025);
+  }
+
+  /* A square frame from edge to edge, so the flash is large on a phone; the photo's sides are trimmed */
+  .joiner-stage {
+    aspect-ratio: 1;
+    margin-inline: calc(-1 * var(--space-4));
+  }
+
+  .joiner-stage .master,
+  .joiner-stage canvas,
+  .joiner-stage .windows {
+    inset: 0 auto auto 50%;
+    inline-size: calc(100% * 1600 / 1167);
+    translate: -50% 0;
+  }
+
+  /* A label a quarter, so no two run together on a phone */
+  .months li:not(:nth-child(3n + 1)) {
+    display: none;
+  }
+
+  .entries .blank .rule {
+    inline-size: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .joiner-stage canvas,
+  .track .lit,
+  .track .head,
+  .entries .det,
+  .entries .d {
+    animation: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "format": "speciesnet-json-shards-v1",
+  "images": 2000,
+  "source_json_sha256": "48ad57c2d590dae1a56c26c9aa5db231f759b56d1bc693ca64e43de4286ab7b7",
+  "metadata": {
+    "info": {
+      "format_version": "20261015"
+    }
+  },
+  "shards": [
+    {
+      "file": "official_usa/001.json.gz",
+      "sha256": "5420b97a64a6be4e90be32b7a8f97d93f5203831139d195c9c4b94424ce9849d",
+      "images": 100,
+      "bytes": 10226
+    },
+    {
+      "file": "official_usa/002.json.gz",
+      "sha256": "ffc4d459655b9f8dd60202b50dce87886961a6538f44db4b0c3285447e0eb1c5",
+      "images": 100,
+      "bytes": 10192
+    },
+    {
+      "file": "official_usa/003.json.gz",
+      "sha256": "ec7fff3b5321b887482576f128783ca7467367e6cf59bd34b7fb2b505ee3f30a",
+      "images": 100,
+      "bytes": 11816
+    },
+    {
+      "file": "official_usa/004.json.gz",
+      "sha256": "3f2323ddf6828f015ce6474f189447dfcbeb2a2f15bfadb6fccd37d43ac00ba1",
+      "images": 100,
+      "bytes": 8852
+    },
+    {
+      "file": "official_usa/005.json.gz",
+      "sha256": "9be74119ae2e04f35503cb708213caddc65ef46c460a490f59d5e763a5cb9ed2",
+      "images": 100,
+      "bytes": 7687
+    },
+    {
+      "file": "official_usa/006.json.gz",
+      "sha256": "5e627cb606dc793955a5ceb55de2e9245d4d6dd6f055193c0d669109c465bc30",
+      "images": 100,
+      "bytes": 9236
+    },
+    {
+      "file": "official_usa/007.json.gz",
+      "sha256": "813272fad751bb335d0e26a20e095bab2e544baffdb4c6e46ec94f5ff2c980c5",
+      "images": 100,
+      "bytes": 8960
+    },
+    {
+      "file": "official_usa/008.json.gz",
+      "sha256": "9ee6fc34c976ef06ebd5024dc077f88b3529cdf0d8d7312880dcfae21b390b04",
+      "images": 100,
+      "bytes": 7623
+    },
+    {
+      "file": "official_usa/009.json.gz",
+      "sha256": "6c051268412ca9b791973c8e3acdb677caea3c6e4176377286fefc9813d239c4",
+      "images": 100,
+      "bytes": 8911
+    },
+    {
+      "file": "official_usa/010.json.gz",
+      "sha256": "c5f09634123d89708acea8c46da56b9589bd33ed7494bc7910dbf468dab7827c",
+      "images": 100,
+      "bytes": 8418
+    },
+    {
+      "file": "official_usa/011.json.gz",
+      "sha256": "a2d3e2bd575b062e7fd7303e11228b56c671c88514c79439691948c36aad1a78",
+      "images": 100,
+      "bytes": 8668
+    },
+    {
+      "file": "official_usa/012.json.gz",
+      "sha256": "11e17986b2edf1b92adcb8f985c93b340f7dccbb5d812670e0e34116cd53c28a",
+      "images": 100,
+      "bytes": 10545
+    },
+    {
+      "file": "official_usa/013.json.gz",
+      "sha256": "9fbd826713050bdc4289275b452293cdaac8d214afef179366f70daa723ee3de",
+      "images": 100,
+      "bytes": 11962
+    },
+    {
+      "file": "official_usa/014.json.gz",
+      "sha256": "abce501c86a13313e06f008609073973a50a8b22f62fd8218603db1a8074aad8",
+      "images": 100,
+      "bytes": 11253
+    },
+    {
+      "file": "official_usa/015.json.gz",
+      "sha256": "ac896b07d1b68a82bdafd9f4418b5e069e77e146ba7bf8e36b296f853761feb7",
+      "images": 100,
+      "bytes": 9160
+    },
+    {
+      "file": "official_usa/016.json.gz",
+      "sha256": "c8c64202e4b9af7d3880dacd7acb597cf6ca00b46b43f8e04a618dd8ee26da06",
+      "images": 100,
+      "bytes": 8138
+    },
+    {
+      "file": "official_usa/017.json.gz",
+      "sha256": "30c3e8088dae11cdce84d03143f69e488a46728d2124777b31e81d630ec8fd8a",
+      "images": 100,
+      "bytes": 9934
+    },
+    {
+      "file": "official_usa/018.json.gz",
+      "sha256": "23252d8fd3cd1fa690d5c518c1897ae3643dde002b6e6ddbfa53159a1397e3e2",
+      "images": 100,
+      "bytes": 10484
+    },
+    {
+      "file": "official_usa/019.json.gz",
+      "sha256": "05e15aae02a6361284f03118edfaff87b64edaa87fbb96378970dec79c9766f2",
+      "images": 100,
+      "bytes": 12414
+    },
+    {
+      "file": "official_usa/020.json.gz",
+      "sha256": "c70f31aad3ec8529214b8f1940f269814b05834579c5c6b02ff472dff3baa4f9",
+      "images": 100,
+      "bytes": 9400
+    }
+  ]
+}
