@@ -10,6 +10,23 @@
   gap: var(--space-2);
 }
 
+.masthead .title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.masthead .title-row a {
+  font-size: 0.9375rem;
+  line-height: 1;
+}
+
+.masthead .title-row a svg {
+  margin-inline-end: 0.4em;
+  vertical-align: -0.125em;
+}
+
 .masthead h1,
 .masthead .wordmark {
   margin: 0;

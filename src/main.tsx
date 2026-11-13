@@ -35,11 +35,13 @@ import { DropZone } from './ui/DropZone';
 import { exportSession, History, restoreSession } from './ui/History';
 import { ImportPredictions } from './ui/ImportPredictions';
 import { Joiner } from './ui/Joiner';
+import { MastheadTitle } from './ui/MastheadTitle';
 import { Progress } from './ui/Progress';
 import { Reel } from './ui/Reel';
 import './ui/styles/base.css';
 
 const STOPPED_HREF = 'https://github.com/intesarjawad/deerdiary/blob/main/docs/local-pipeline.md';
+const REPO_HREF = 'https://github.com/intesarjawad/deerdiary';
 const MEGABYTE = 1_000_000;
 
 const root = document.getElementById('app');
@@ -531,7 +533,7 @@ function App() {
       <header class="masthead" data-hero={!hasResults}>
         <div class="title">
           {/* Before a diary the joiner's claim is the page's heading, and the name is a wordmark. */}
-          {hasResults ? <h1>Deerdiary</h1> : <p class="wordmark">Deerdiary</p>}
+          <MastheadTitle heading={hasResults} repoHref={REPO_HREF} />
           <p class="lede">
             Drop a trail-camera card folder to get a species diary. Photos stay in this browser.
           </p>
